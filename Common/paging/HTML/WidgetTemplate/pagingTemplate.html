@@ -1,0 +1,17 @@
+﻿<div class="row">
+<div class="container dl_Title">
+Department Links
+</div>
+<div class="container dl_body">
+<div style="clear:both">&nbsp;</div>
+ <ul>
+    <li dir-paginate="item in model.data | itemsPerPage: 7">
+		<i class="fa fa-arrow-circle-right" aria-hidden="true"></i><a href="{{item.Url}}">  {{item.Title}}</a>
+	</li>
+</ul>
+<dir-pagination-controls></dir-pagination-controls>
+<!--<ul class="deptLinks" uib-pagination  max-size="model.noOfPages" total-items="model.totalItems" ng-model="model.currentPage"></ul>-->
+
+</div>
+
+</div>

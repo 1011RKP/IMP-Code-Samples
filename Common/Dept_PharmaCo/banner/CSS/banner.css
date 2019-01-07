@@ -1,0 +1,244 @@
+﻿#depAnnounc .glyphicon.glyphicon-chevron-right {
+    display: none !important;
+}
+
+#depAnnounc .glyphicon.glyphicon-chevron-left {
+    display: none !important;
+}
+
+#depAnnounc .carousel-control.right {
+    background-image: none !important;
+    display: none !important;
+}
+
+#depAnnounc .carousel-control.left {
+    background-image: none !important;
+    display: none !important;
+}
+#depAnnounc .carousel-indicators {
+     display: none !important;
+}
+#depAnnounc .carousel-indicators .active{
+       display: none !important;
+}
+#depAnnounc .carousel-indicators li {
+      display: none !important;
+}
+#depAnnounc_inner a {
+    color: white;
+    text-align: left;
+    float: left;
+}
+.depAnn_Title a{
+	color:white!important;
+}
+h1{
+    margin-top: 5px !important; 
+    margin-bottom: 5px !important;
+}
+#contentBox {
+    margin-right: 20px;
+    margin-left: 20px; 
+ }
+#sideNavBox{
+   display: none;
+}
+.siteOwner{
+}
+#depAnnounc_inner{
+	overflow:none!important;
+}
+.banner{
+    /*background-image: url("/sites/GlobalFinance/SiteAssets/fullwidth_office.jpg") !important;*/
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+    background-size: 89%;
+    background-repeat: no-repeat;
+	padding:0px!important;
+	border-radius:5px;
+	}
+.banner_sm_xs{
+/*    background-image: url("/sites/common/SiteAssets/siteOwner/Banner.png")!important;*/
+    background-size: 95%;
+    margin-left: 16px;
+    background-repeat: no-repeat;
+}
+.bannerInfo{
+    float: right!important;
+    padding: 15px;
+    background: #0065A1;
+    opacity: 0.9;
+    min-height: 173px;
+    margin-right: -15px;
+    text-align: justify;
+	border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    font-family:"Segoe UI Semilight","Segoe UI Semilight","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+}  
+
+.bannerInfo h3{
+    color: white;
+    opacity:1.0;
+    font-family:"Segoe UI Semilight","Segoe UI Semilight","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+    font-size: 17px;
+	margin-top:0px!important;
+}
+
+.bannerInfo h4{
+    color: white;
+    opacity:1.0;
+    font-family:"Segoe UI Semilight","Segoe UI Semilight","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+    font-size: 17px;
+	margin-top:0px!important;
+}
+.bannerInfo_sm_xs{
+    float: left!important;
+    padding: 5px;
+    background: #0065A1;
+    opacity: 0.6;
+    text-align: justify;
+    margin-left: -15px!important;
+    font-family:"Segoe UI Semilight","Segoe UI Semilight","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif; 
+}
+.bannerInfo_sm_xs h4{
+    color: white;
+    opacity:1.0;
+	margin: 0px!important;
+    font-family:"Segoe UI Semilight","Segoe UI Semilight","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+}
+.bannerInfo_sm_xs h3{
+    color: white;
+    opacity:1.0;
+	margin: 0px!important;
+    font-family:"Segoe UI Semilight","Segoe UI Semilight","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+}
+
+.responsive{
+    font-size: 6em!important;
+    color:gray;
+}
+a.ann_Title {
+    color: white!important;
+}
+a.ann_Title:active {
+    color: white!important;
+}
+#depAnnounc {
+    padding-left: 7px;
+}
+}
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)  { 
+    .accordion .about-me .photo {
+        width: 75px;
+        height: 75px;
+        margin: auto;
+        overflow: hidden;
+        border-radius: 50%;
+        position: relative;
+        border: 4px solid #fff;
+        box-shadow: 0 6px 20px 0 rgba(0,0,0,.19), 0 8px 17px 0 rgba(0,0,0,.2);
+        /* background: url(https://s.gravatar.com/avatar/24a65a47147cddf5b270bc9f609ffa2a?s=90) no-repeat center; */
+    }
+    .responsive{
+        font-size: 6em!important;
+        color:gray;
+    }
+    .accordion>a.active {
+        color: #eee;
+        font-size: 16px;
+        text-decoration: none;
+    }
+	.bannerInfo {
+    float: right!important;
+  	padding:0px;
+    background: #0065A1;
+    opacity: 0.9;
+    min-height: 194px;
+    margin-right: -15px;
+    text-align: justify;
+    font-family: "Segoe UI Semilight","Segoe UI Semilight","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+}
+	.siteOwner{
+		width:210px;
+	
+	}
+	.bannerInfo h3{
+		padding-left:5px;	
+	}
+	.bannerInfo h4{
+		padding-left:5px;	
+	}
+	.banner{
+	    /*background-image: url("/Sites/Common/SiteAssets/siteOwner/Banner.png");*/
+	    background-size: 125%;
+	    background-repeat: no-repeat;
+		padding:0px!important;
+	}
+	.bannerInfo_sm_xs {
+	   float: right!important;
+	    padding: 5px;
+	    background: #0065A1;
+	    opacity: 0.9;
+	    min-height: 185px;
+	    text-align: justify;
+	    margin-left: -15px!important;
+	    font-family: "Segoe UI Semilight","Segoe UI Semilight","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+	}
+	.banner_sm_xs {
+	    background-image: /*background-image: url("/Sites/Common/SiteAssets/siteOwner/Banner.png");*/;
+	    background-size: 115%;
+	    margin-left: -5px;
+	    background-repeat: no-repeat;
+	}
+	#depAnnounc {
+	    padding-left: 7px;
+	}
+}
+
+
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) {
+.banner{
+	    /*background-image: url("/Sites/Common/SiteAssets/siteOwner/Banner.png");*/
+	    background-size: 125%;
+	    background-repeat: no-repeat;
+		padding:0px!important;
+	}
+	.bannerInfo_sm_xs {
+	   float: right!important;
+	    padding: 5px;
+	    background: #0065A1;
+	    opacity: 0.9;
+	    min-height: 200px;
+	    text-align: justify;
+	    margin-right: -15px;
+	    font-family: "Segoe UI Semilight","Segoe UI Semilight","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+	}
+	.banner_sm_xs {
+    background-image: /*background-image: url("/Sites/Common/SiteAssets/siteOwner/Banner.png");*/;
+    background-size: 280%;
+    /* margin-left: 16px; */
+    background-repeat: no-repeat;
+    height: 210px;
+	}
+}
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : landscape) {
+.siteOwner{
+		margin-top:10px;
+	}
+#depAnnounc {
+    padding-left: 7px;
+}
+
+}
+.siteOwner_sm{
+	margin-left:-18px;
+}
+.siteOwner_xs{
+	margin-top:15px;
+}

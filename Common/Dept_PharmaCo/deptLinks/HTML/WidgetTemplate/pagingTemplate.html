@@ -1,0 +1,14 @@
+﻿<div class="row">
+    <div class="container dl_body">
+        <div style="clear:both">&nbsp;</div>
+        <ul>
+            <li dir-paginate="item in model.data | itemsPerPage: 7">
+                <i class="fa fa-arrow-circle-right" aria-hidden="true"></i><a target="_blank" href="{{item.Url.Url}}">  {{item.Title}}</a>
+            </li>
+        </ul>
+        <dir-pagination-controls></dir-pagination-controls>
+    </div>
+    <div class="container">
+        <a style="float:right;color: white!important;" href="/sites/Pharmacovigilance/Lists/Department%20Links/" target="_blank" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true">Add Link</i></a>
+    </div>
+</div>

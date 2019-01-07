@@ -1,0 +1,194 @@
+﻿
+
+<link rel="stylesheet" href="/sites/common/SiteAssets/MegaMenu_IT/CSS/mgmenu_sub.css" type="text/css" media="screen" />
+
+
+
+
+
+<div class="page_wrapper" id="subleftMenu">
+    <div class="visible-xs visible-sm">
+        <ul class="mgmenusubXS">
+            <li ng-repeat="topMenuItem in model.TopMenuItems" onclick="OpensecondsubsmallDevices(event,this)">
+                <a ng-href="{{topMenuItem.Url.Url}}" class="TopMenuxsTitle" ng-show="!model.IsChildElements(topMenuItem.Id)"><span>{{topMenuItem.Title}}</span></a>
+                <span class="TopMenuTitlemobile" ng-show="model.IsChildElements(topMenuItem.Id)" id="#smMainSpan{{$index}}">
+                    {{topMenuItem.Title}}
+                    <input id="hiddenmenutype" type="hidden" name="menutype" value="{{topMenuItem.MenuType}}">
+                    <i class="fa  fa-caret-down" aria-hidden="true"></i>
+                </span>
+                <ul class="ListItemsForXSdevices" id="smShowDepartments" ng-show="model.IsChildElements(topMenuItem.Id)"
+                    ng-if="topMenuItem.MenuType == 'megaMenuDropdown'" style="display:none;">
+                    <li class="resourceSubItems" ng-repeat="firstLevelItem in model.MenuItems[$index]" onclick="OpensecondsubsmallDevices(event,this)">
+                        <a href="#" ng-show="firstLevelItem.child.length == 0"><span class="Topmenuxsfirstlevel">{{firstLevelItem.Title}}</span></a>
+                        <span ng-show="firstLevelItem.child.length != 0" id="#smSecondDepartmetSubMenu{{$index}}">{{firstLevelItem.Title}}</span>
+                        <i ng-show="firstLevelItem.child.length != 0" class="fa  fa-caret-down" aria-hidden="true"></i>
+                        <ul id="smSecondDepartmetSubMenu{{$index}}" ng-show="firstLevelItem.child.length" style="display:none;">
+                            <li class="resourceSubItems" ng-repeat="secondLevelItem in firstLevelItem.child">
+                                <a ng-href="{{secondLevelItem.Url.Url}}"><span class="Topmenuxsfirstlevel">{{secondLevelItem.Title}}</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="ListItemsForXSdevices" id="smMainSpan{{$index}}" ng-show="model.IsChildElements(topMenuItem.Id)" style="display:none"
+                    ng-if="topMenuItem.MenuType == 'megaMenuTabbedDropdown'">
+                    <li class="resourceSubItems" id="lisub{{index+1}}" ng-repeat="firstLevelItem in model.MenuItems[$index]" class="menulistsubItems" onclick="OpensecondsubsmallDevices(event,this)">
+                        <a href="#" ng-show="firstLevelItem.child.length == 0"><span class="Topmenuxsfirstlevel">{{firstLevelItem.Title}}</span></a>
+                        <span ng-show="firstLevelItem.child.length != 0" id="#smSecondSubMenu{{$index}}">{{firstLevelItem.Title}}</span>
+                        <i ng-show="firstLevelItem.child.length" class="fa  fa-caret-down" aria-hidden="true"></i>
+                        <ul id="smSecondSubMenu{{$index}}" ng-show="firstLevelItem.child.length" style="display:none">
+                            <li class="resourceSubItems" ng-repeat="secondLevelItem in firstLevelItem.child">
+                                <a ng-href="{{secondLevelItem.Url.Url}}"><span class="Topmenuxsfirstlevel">{{secondLevelItem.Title}}</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul id="menuList" class="ListItemsForXSdevices" ng-if="topMenuItem.MenuType == 'menuList'" ng-init="parentId = $index" style="display:none;">
+                    <li class="resourceSubItems" ng-repeat="firstLevelItem in model.MenuItems[parentId]" onclick="OpenSubListingListItems(event, this)">
+                        <a ng-href="{{firstLevelItem.Url.Url}}" id="#listingsub{{$index+1}}"><span class="Topmenuxsfirstlevel">{{firstLevelItem.Title}}</span></a>
+                        <i ng-if="firstLevelItem.Heading==1" class="fa  fa-caret-down" aria-hidden="true">
+                        </i>
+                        <ul id="listingsub{{$index+1}}" ng-show="firstLevelItem.child" style="display:none">
+                            <li class="menulistsubItems" ng-repeat="secondLevelItem in firstLevelItem.child">
+                                <a ng-href="{{secondLevelItem.Url.Url}}"><span class="Topmenuxsfirstlevel">{{secondLevelItem.Title}}</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="visible-lg visible-md">
+        <div id="mgslidemenu" class="mgmenu_fixed">
+            <ul class="mgmenusub">
+                <li class="mgmenu_button"></li><!-- Button (Mobile Devices) -->{{model.getTopMenuItems()}}
+                <li ng-repeat="topMenuItem in model.TopMenuItems" onmouseover="ChangeanchortagTextColorSubMenu(this)" onmouseout="ChangeSlideSpantoBlue(this)">
+                    <a ng-href="{{topMenuItem.Url.Url}}" ng-show="!model.IsChildElements(topMenuItem.Id)"><span class="TopMenuTitlesub">{{topMenuItem.Title}}</span></a>
+                    <span class="TopMenuTitlesub" ng-show="model.IsChildElements(topMenuItem.Id)">
+                        {{topMenuItem.Title}}
+                        <i class="fa  fa-caret-down" aria-hidden="true"></i>
+                    </span>
+                    <div id="megaMenuDropdownDiv" style="display : none !important;" class="dropdown_fullwidth mgmenu_tabs" ng-show="model.IsChildElements(topMenuItem.Id)"
+                         ng-if="(topMenuItem.MenuType == 'megaMenuDropdown' || topMenuItem.MenuType == 'megaMenuTabbedDropdown')">
+                        <ul class="mgmenusub_tabs_nav">
+                            <li ng-repeat="firstLevelItem in model.MenuItems[$index] " ng-if="topMenuItem.MenuType == 'megaMenuDropdown'">
+                                <a id="megamenuslidesubanchortag{{$index+1}}" onClick="ShowDepartmentsSlideSubMenuItems(this.id)"
+                                   href="#sectionsub{{$index+1}}" ng-if="$index==0" class="current">
+                                    {{firstLevelItem.Title}}
+                                    <i class="pull-right fa fa-caret-right" aria-hidden="true"></i>
+                                </a>
+                                <a id="megamenuslidesubanchortag{{$index+1}}" onClick="ShowDepartmentsSlideSubMenuItems(this.id)"
+                                   href="#sectionsub{{$index+1}}" ng-if="$index!=0">
+                                    {{firstLevelItem.Title}}
+                                    <i class="pull-right fa fa-caret-right" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li ng-repeat="firstLevelItem in model.MenuItems[$index] " ng-if="topMenuItem.MenuType == 'megaMenuTabbedDropdown'">
+                                <a id="resourceslideanchortag{{$index+1}}" onClick="ShowDepartmentsSlideSubMenuItems(this.id)"
+                                   href="#show{{$index+1}}" ng-if="$index==0" class="current">
+                                    {{firstLevelItem.Title}}
+                                    <i class="pull-right fa fa-caret-right" aria-hidden="true"></i>
+                                </a>
+                                <a id="resourceslideanchortag{{$index+1}}" onClick="ShowDepartmentsSlideSubMenuItems(this.id)"
+                                   href="#show{{$index+1}}" ng-if="$index!=0">
+                                    {{firstLevelItem.Title}}
+                                    <i class="pull-right fa fa-caret-right" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <div id="megaMenuDropDownsubDiv" class="mgmenu_tabs_panels">
+                            <div id="sectionsub{{$index+1}}" ng-repeat="firstLevelItem in model.MenuItems[$index] "
+                                 ng-if="($index==0 && topMenuItem.MenuType == 'megaMenuDropdown')">
+                                <div class="row secondsubmMenuBadging">
+                                    <div class="col-lg-12 banner-consumer-electronics">
+                                        <h2 class="bannerHeading">{{firstLevelItem.Title}}</h2>
+                                    </div>
+                                </div>
+                                <ul>
+                                    <li class="resourceSubItems" ng-repeat="secondLevelItem in firstLevelItem.child| orderBy:'Title'">
+                                        <a ng-href="{{secondLevelItem.Url.Url}}"><span class="darksubitemcolor">{{secondLevelItem.Title}}</span></a>
+                                        <span ng-if="secondLevelItem.New_x0020_Badge==1" class="badge-color-1">New</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="sectionsub{{$index+1}}" ng-repeat="firstLevelItem in model.MenuItems[$index]"
+                                 ng-if="($index!=0 && topMenuItem.MenuType == 'megaMenuDropdown')" class="mgmenu_tabs_hide">
+                                <div class="row secondsubmMenuBadging">
+                                    <div class="col-lg-12 banner-consumer-electronics">
+                                        <h2 class="bannerHeading">{{firstLevelItem.Title}}</h2>
+                                    </div>
+                                </div>
+                                <ul>
+                                    <li class="resourceSubItems" ng-repeat="secondLevelItem in firstLevelItem.child | orderBy:'Title'">
+                                        <a ng-href="{{secondLevelItem.Url.Url}}"><span class="darksubitemcolor">{{secondLevelItem.Title}}</span></a>
+                                        <span ng-if="secondLevelItem.New_x0020_Badge==1" class="badge-color-1">New</span>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div id="show{{$index+1}}" ng-repeat="firstLevelItem in model.MenuItems[$index]"
+                                 ng-if="($index==0 && topMenuItem.MenuType == 'megaMenuTabbedDropdown')">
+                                <div class="row secondsubmMenuBadging">
+                                    <div class="col-lg-12 banner-consumer-electronics">
+                                        <h2 class="bannerHeading">{{firstLevelItem.Title}}</h2>
+                                    </div>
+                                </div>
+                                <ul>
+                                    <li class="resourceSubItems" ng-repeat="secondLevelItem in firstLevelItem.child | orderBy:'Title'">
+                                        <a ng-href="{{secondLevelItem.Url.Url}}"><span class="darksubitemcolor">{{secondLevelItem.Title}}</span></a>
+                                        <span ng-if="secondLevelItem.New_x0020_Badge==1" class="badge-color-1">New</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="show{{$index+1}}" ng-repeat="firstLevelItem in model.MenuItems[$index]"
+                                 ng-if="($index!=0 && topMenuItem.MenuType == 'megaMenuTabbedDropdown')" class="mgmenu_tabs_hide">
+                                <div class="row secondsubmMenuBadging">
+                                    <div class="col-lg-12 banner-consumer-electronics">
+                                        <h2 class="bannerHeading">{{firstLevelItem.Title}}</h2>
+                                    </div>
+                                </div>
+                                <ul>
+                                    <li class="resourceSubItems" ng-repeat="secondLevelItem in firstLevelItem.child | orderBy:'Title'">
+                                        <a ng-href="{{secondLevelItem.Url.Url}}"><span class="darksubitemcolor">{{secondLevelItem.Title}}</span></a>
+                                        <span ng-if="secondLevelItem.New_x0020_Badge==1" class="badge-color-1">New</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="menulistParentDiv" style="display : none!important;" class="dropdown_container dropdown_7columns" ng-init="parentId = $index"
+                         ng-show="model.IsChildElements(topMenuItem.Id)" ng-if="topMenuItem.MenuType == 'menuList'">
+                        <div class="row" ng-repeat="firstLevelItem in model.MenuItems[parentId]" ng-if="((($index % 2) == 0)&&firstLevelItem.Heading!=1)" ng-init="start = $index">
+                            <div class="col-lg-6 col-md-6" ng-repeat="firstLevelItem in model.MenuItems[parentId] | limitTo : 2: start" ng-if="firstLevelItem.Heading!=1">
+                                <ul style="margin: 0px 0px 0px 16px; padding: 0px 0px 0px 16px;">
+                                    <li class="resourceSubItems">
+                                        <a ng-href="{{firstLevelItem.Url.Url}}">{{firstLevelItem.Title}}</a>
+                                        <span ng-if="firstLevelItem.New_x0020_Badge==1" class="badge-color-1">New</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col_12">
+                            <hr>
+                        </div>
+                        <div class="col-lg-12 ListItemSubMenu">
+                            <h3 id="classicMenuSecondLevel" ng-repeat-start="firstLevelItem in model.MenuItems[parentId]" ng-if="firstLevelItem.Heading==1" style="text-align:left">{{firstLevelItem.Title}}</h3>
+                            <ul ng-repeat-end ng-if="firstLevelItem.Heading==1">
+                                <li class="resourceSubItems" id="classicMenuli" ng-repeat="secondLevelItem in firstLevelItem.child | orderBy:'Title'">
+                                    <a ng-href="{{secondLevelItem.Url.Url}}">{{secondLevelItem.Title}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="visible-lg" onmouseover="ChangeanchortagTextColorSubMenu(this)" onmouseout="ChangeSlideSpantoBlue(this)">
+                    <a id="IsSiteAdminSecondNavigation" href="/sites/Common/Lists/SideNavigation/AllItems.aspx" style="display:none;">
+                        <span class="TopMenuTitlesub"> <i class="fa fa-list fa-1x" aria-hidden="true"></i></span>
+                    </a>
+                <li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+

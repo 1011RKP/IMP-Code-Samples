@@ -1,0 +1,1417 @@
+﻿/*@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css);*/
+
+/*bootstrap 3 resets for SharePoint*/
+/*border-box causes many issues with SP*/
+*, *:before, *:after {
+	-webkit-box-sizing: content-box; 
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+/*reset elements that B3 is expecting to be border-box*/
+* [class^="col-"], * [class^="col-"]:before, * [class^="col-"]:after,
+.container, .container:before, .container:after,
+.row, .row:before, .row:after,
+.nav *, .navbar-toggle, .table, .table-responsive, .form-control, .btn-block, .caret, .dropdown-menu, .navbar-toggle, .page-navigation *, .icon-bar, .breadcrumb, .progress-bar, .modal-dialog,
+legend, fieldset, code, pre
+{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+img {
+	max-width: none;
+	width: auto;
+}
+/*for images inside span grid*/
+/** [class^="col-"] img {
+	max-width: 100%; 
+}*/
+#scriptWPQ2 img, img.ms-webpart-menuArrowImg, #applist img, .ms-core-menu-icon > img {
+	width: auto; /*within a span may still need to have width of image not 100% for SP2013 OOTB features/imges*/
+	max-width: none;
+}
+/*.ms-siteactions-imgspan {
+	float: none;
+	margin: 0px;
+}*/
+input.ms-cui-cb-input {
+	height: 14px;
+    padding: 3px 7px 2px;
+}
+select, input[type="file"] {
+    height: auto;
+    line-height: 20px;
+}
+label {
+    display: inline-block;
+    margin-bottom: 0px;
+    font-weight: normal;
+}
+.navbar-toggle {
+	min-width: 0px;
+}
+a:focus { 
+    outline: none; 
+}
+button::-moz-focus-inner {
+	border: 0;
+}
+
+
+.sp-peoplepicker-topLevel, .sp-peoplepicker-topLevelDisabled {
+
+    min-width: 640px;
+}
+
+input[type=text].sp-peoplepicker-editorInput {
+
+    max-width: 630px !important;
+
+}
+
+
+#s4-titlerow
+{
+   display: block !Important;
+}
+
+/*end bootstrap resets*/
+
+/*SharePoint overrides some B3 classes, reset back*/
+.container {
+	background-color: transparent;
+	border: 1px transparent none;
+	color: inherit;
+	margin: 0px auto;
+	width: auto;
+}
+/*end SP resets*/
+
+/*template styles*/
+/*Main SP containers*/
+/*end Main SP containers*/
+#s4-bodyContainer {
+	width: auto !important;
+}
+/* ribbon*/ 
+
+.ms-cui-topBar2{
+
+    background: rgb(51,153,204);
+    background: -moz-linear-gradient(top, rgb(51,153,204) 0%, rgb(53,154,205) 15%, rgb(65,160,208) 26%, rgb(79,167,211) 35%, rgb(107,181,219) 50%, rgb(193,225,241) 85%, rgb(218,238,247) 100%);
+    background: -webkit-linear-gradient(top, rgb(51,153,204) 0%,rgb(53,154,205) 15%,rgb(65,160,208) 26%,rgb(79,167,211) 35%,rgb(107,181,219) 50%,rgb(193,225,241) 85%,rgb(218,238,247) 100%);
+    background: linear-gradient(to bottom, rgb(51,153,204) 0%,rgb(53,154,205) 15%,rgb(65,160,208) 26%,rgb(79,167,211) 35%,rgb(107,181,219) 50%,rgb(193,225,241) 85%,rgb(218,238,247) 100%);
+    background: rgb(221,239,248);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3399cc', endColorstr='#daeef7',GradientType=0 );
+
+	/*background: transparent url('../img/header-bg-top.png') repeat-x 0px 0px;*/
+	height: 35px;
+	border-bottom: 0px;
+    /*background-size: 100% 100%;	*/
+
+}
+
+.ms-cui-topBar2.ms-browseTabContainer
+{
+    border-bottom: 0px;
+
+}
+#suiteBar {
+	display: block;
+	height: 60px;
+    display: none;
+}
+#suiteBarLeft, #suiteBarRight {
+    display: inline-block;
+    width: 100%;
+}
+#suiteBarRight .ms-core-deltaSuiteBarRight {
+	float: right;
+}
+
+/* Hide Site Actions gear icon */
+.ms-siteactions-imgspan {
+    display: none;
+}
+
+/* Insert new Site Actions gear icon - allows for icon color change */
+.ms-siteactions-normal > a:before {
+    content: "\f013";  /* Unicode character for icon font */
+    font-family: FontAwesome;   /* Icon font - requires @import listed at top of file */
+    color: #fff;  /* Icon color */
+    font-size: 16px;  /* Icon size */
+    font-weight: normal; /* Removes default bolding that can occur with icon font */
+    padding-top: 7px;  /* Spaces down icon from top */
+    /*display: block; */ /* Forces respect of padding */
+}
+
+/* Insert new Site Help icon - allows for icon color change */
+#ms-help > a:before {
+    content: "\f128";  /* Unicode character for icon font */
+    font-family: FontAwesome;   /* Icon font - requires @import listed at top of file */
+    color: #fff;  /* Icon color */
+    font-size: 16px;  /* Icon size */
+    font-weight: normal; /* Removes default bolding that can occur with icon font */
+    padding-top: 7px;  /* Spaces down icon from top */
+    /*display: block;*/  /* Forces respect of padding */
+}
+
+/* Remove OOTB Site Actions hover (appears as underline under icon) */
+.ms-siteactions-normal > a:hover {
+    text-decoration: none;
+}
+ 
+#ms-help > a:hover {
+    text-decoration: none;
+}
+
+.ctl00_ctl47_TopHelpLink > a:hover {
+    text-decoration: none;
+}
+
+.ms-welcome-root > a:hover {
+    text-decoration: none;
+}
+
+
+.ms-siteactions-root > span > a.ms-core-menu-root {
+
+    padding: 0px 0px 0px 0px;
+    padding-right: 11px;
+
+}
+
+/* Set gear icon hover color */
+.ms-siteactions-normal > a:hover:before {
+    color: #004d85;
+}
+
+#ms-help > a:hover:before {
+    color: #004d85;
+}
+
+.ctl00_ctl47_TopHelpLink > a:hover:before {
+    color: #004d85;
+}
+
+/* Set gear icon hover color */
+.ms-welcome-root > a:hover:before {
+    color: #004d85;
+}
+
+/* Remove OOTB Site Actions hover */
+.ms-siteactions-hover {
+    background: transparent;
+    border-right-color: transparent;
+}
+
+.ms-siteactions-hover {
+    background: transparent;
+    border-right-color: transparent;
+}
+/* Remove OOTB Site Actions hover */
+.ms-welcome-hover {
+    background: transparent;
+    border-right-color: transparent;
+}
+
+    .ms-core-menu-arrow img {
+        display: none;
+ 
+}
+
+/*fix right links to sit next to each other*/
+.ms-core-deltaSuiteLinks {
+   display: inline-block;
+   vertical-align: top;
+}
+
+.ms-promotedActionButton {
+   vertical-align: top;
+   line-height: 30px;
+}
+.ms-qatbutton {
+   vertical-align: top;
+}
+
+/*ribbon colors*/
+/*right tabs*/
+.ms-welcome-root > a.ms-core-menu-root, .ms-signInLink {
+    color: #FFFFFF;
+    line-height: 34px;
+}
+.ms-promotedActionButton-text {
+    color: #FFFFFF;
+}
+
+
+/*Ribbon font*/
+.ms-browseTab.ms-cui-tt-s > .ms-cui-tt-a > .ms-cui-tt-span
+{
+    font-weight:bold;
+}
+
+
+.ms-cui-tt-a > .ms-cui-tt-span {
+    font-weight:bold;
+}
+
+/*left tabs such as browser, edit, etc*/
+.ms-cui-tt-a > .ms-cui-tt-span {
+    /*color: #FFFFFF !important;*/ /*overriding OOTB important tag*/
+}
+
+.ms-browseTab.ms-cui-tt-s > .ms-cui-tt-a > .ms-cui-tt-span {
+   /* color: #FFFFFF !important; *//*again overriding OOTB important tag*/
+}
+
+a[id$=site_share_button], a[id$=SyncPromotedAction], a#site_follow_button
+{
+    display: none !important;
+}
+ 
+Span#fullscreenmodebox
+{
+ display:none;
+}
+
+
+body
+{
+    /*overflow:auto!important;*/
+
+}
+
+/*body{
+  overflow-y:auto !important;
+  overflow-x:auto !important;
+}*/
+
+/*#s4-workspace
+{
+   position:relative;
+   overflow-x:auto;
+   overflow-y:scroll;
+   left:0px;
+} 
+
+BODY #s4-workspace
+{
+   width:auto;
+   height:auto;
+   overflow:visible;
+}*/ 
+
+
+/* fix the modal to resize correctly
+
+********************************************************** */
+
+/*.ms-dialog body #s4-workspace {padding:0px;overflow:auto !important;}
+
+.ms-dialog body #s4-ribbonrow {position:relative;}
+
+.ms-dialog #isb-wrapper {margin:0px;}*/
+
+
+/*.ms-dialog .customWidth, .ms-dialog .customBodyHolder, .ms-dialog body {
+margin:0 !important;
+min-height:0 !important;
+min-width: 700px !important;
+width:auto !important;
+height:auto !important;
+
+padding: 0px !important;
+box-shadow: none;
+overflow-y:scroll;
+overflow-x:scroll;
+
+overflow: auto!important;
+
+}*/
+
+/*.ms-dialog .customWidth, .ms-dialog .customBodyHolder, .ms-dialog body {
+display:none;
+}*/
+
+.ms-dialog .customTopHolder,
+.ms-dialog .customLogo,
+.ms-dialog .customFooterStripe,
+.ms-dialog .customFooterHolder,
+.ms-dialog .customTopNavHolder {
+display:none;
+}
+#s4-ribbonrow [class*="col-"] {
+    float: none;
+    margin-left: 0px;
+}
+#pageStatusBar[class], .ms-status-msg {
+	margin-bottom: 0px;
+}
+#suiteBarLeft {
+    background-color: #FFFFFF;
+}
+.ms-cui-dd-text, input.ms-cui-cb-input, input[type="text"].ms-cui-cb-input {
+    border-color: #D3D6D9;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px 0 1px 1px;
+    cursor: default;
+    display: block;
+    height: 14px;
+    padding: 3px 7px 2px;
+    white-space: nowrap;
+    font-size: inherit;
+}
+
+#suiteLinksBox .ms-core-suiteLink-a[id$='ShellDocuments'],
+#suiteLinksBox .ms-core-suiteLink-a[id$='ShellNewsfeed'],
+#suiteLinksBox .ms-core-suiteLink-a[id$='ShellSites'] {
+    display: none;
+}
+
+/*header*/
+.header {
+	/*margin-top: 10px;*/
+    margin-top: -10px;
+}
+.headtitle {
+	margin-left: 10px;
+}
+#pageTitle {
+	/*margin: 0px 0px 5px;
+	font-size: 2em;*/
+	text-transform: capitalize;
+}
+/* breadcrumb*/
+ul.s4-breadcrumb {
+	margin-bottom: 5px;
+	padding: 0px;
+}
+ul.s4-breadcrumb, ul.s4-breadcrumb ul {
+	margin: 0px 0px 5px;
+	padding: 0px;
+	list-style: none inside none;
+	display: inline-block;
+}
+ul.s4-breadcrumb .s4-breadcrumb-arrowcont {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: transparent url('../img/glyphicons-halflings.png') no-repeat -262px -92px;
+}
+ul.s4-breadcrumb .s4-breadcrumb-arrowcont img {
+    display: none !important;
+}
+ul.s4-breadcrumb > li:first-child > span.s4-breadcrumb-arrowcont {
+	display: none;
+}
+ul.s4-breadcrumb a.s4-breadcrumbCurrentNode {
+	color: #000;
+}
+/* end breadcrumb*/
+
+/*search box*/
+.header .searchbox {
+	display: block;
+	float: none;
+	clear: both;
+}
+/*end search box*/
+/*end header*/
+
+/*top nav */
+#topnavbar {
+    height: auto;
+}
+#topnavbar.navbar {
+	z-index: 50;
+}
+#topnavbar .navbar-collapse {
+	max-height: none;
+	clear: both;
+}
+/*on mobile devices top nav bar will be a drop down, so we want to show across*/
+.ms-core-listMenu-horizontalBox {
+	display: block;
+}
+
+    #suiteBarLeft, #suiteBarRight {
+        background-color: #FFFFFF;
+    }
+#topnavbar .nav ul, #topnavbar .nav ul > li {
+	float: none;
+	list-style: none outside none;
+	margin: 0;
+	padding: 0;
+}
+#topnavbar .nav ul.static {
+	display: block;
+	position: relative;
+	text-align: left;
+}
+#topnavbar li.static {
+	display: block;
+	width: 100%;
+	position: relative;
+}
+#topnavbar li.static > .menu-item {
+	display: block;
+	height: 47px;
+	line-height: 1em;
+	padding: 15px 0;
+	margin: 0px;
+	position: relative;
+}
+.ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item {
+    border: none;
+}
+/*images within nav should not use respponsive properties*/
+/*#topnavbar .nav img {max-width: none;}*/
+/*hide the edit nav button on mobile devices*/
+/*#topnavbar .nav ul.root > li.ms-navedit-editArea {
+	display: none;
+}*/
+ /*** Sub-Menu/Flyover/Dynamic Menu Container ***/
+ul.dynamic {
+    background-color: #D5E4F2;
+    border: 1px solid #000;
+    padding: 1px;
+    margin-top: 5px;
+    width: auto !important;
+    white-space: nowrap;
+} 
+ 
+#globalNavBox, .ms-clientcontrol-chromeheader {
+   background-color: #FFFFFF; 
+}
+
+/***  Sub-Menu Items (HyperLinks) Style ***/
+ul.dynamic .ms-core-listMenu-item {
+    background-color: #01679B;
+    color:#FFFFFF !important; /*added Sam@Cadient to change font color of submenu text to white*/
+    padding: 10px 20px 10px 20px;
+    white-space: nowrap;
+} 
+ 
+ 
+/*** Sub-Menu Items (HyperLinks) Hover Style ***/
+ul.dynamic .ms-core-listMenu-item:hover {
+    background-color: #61CBFD;
+    color: #FFF;
+} 
+/*hide or provide padding for downdown arrow*/
+/*#topnavbar .ms-core-listMenu-horizontalBox .dynamic-children.additional-background {
+	width: 100%;
+	display: block;
+}*/
+
+/*dynamic menus should not appear*/
+/*#topnavbar ul.dynamic {
+	display: none !important;
+	position: relative !important;
+	top: auto !important;
+	left: auto !important;
+	width: auto !important;
+	box-shadow: none;
+}
+#topnavbar li.shown > ul.dynamic {
+	display: block !important;
+}
+#topnavbar ul.dynamic > li {
+	background: transparent none;
+	border-right: medium none;
+	border-top: 1px solid #d1d1d1;
+	display: block;
+	float: none;
+	height: auto;
+}
+#topnavbar li.dynamic .menu-item {
+	padding: 15px;
+}
+#topnavbar .ms-core-listMenu-horizontalBox .dynamic-children.additional-background {
+    background-image: url("/_layouts/15/images/menu-down.gif");
+}
+#topnavbar .ms-core-listMenu-horizontalBox .dynamic .dynamic-children.additional-background {
+    background-image: url("/_layouts/15/images/menu-down.gif");
+}*/
+/*end top nav */
+
+/*left nav */
+#sideNavBox.col-md-3 {
+    float: none;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: auto;
+}
+/*end left nav */
+
+/* main content areas */
+div.table { 
+	margin: 0px; /*added by design manager admin page, ruins rd layout*/
+}
+.col-md-9 .ms-table {
+    display: inherit;
+}
+.col-md-9 .tableCol-75 {
+    display: inherit;
+}
+#ms-core-tableNoSpace {
+	display: block;
+}
+
+/*site settings*/
+/*Settings page - Add app page*/
+#idStorefrontManagementLeftNavBar.ms-core-sideNavBox-removeLeftMargin {
+	margin-left: 0;
+}
+a.ms-storefront-selectanchor, a.ms-storefront-selectanchor:link, a.ms-storefront-selectanchor:visited {
+	clear: both;
+	width: auto;
+}
+/*end site settings*/
+
+/*web part zones*/
+* [class^="col-"] .ms-webpart-zone, * [class^="col-"] .ms-webpart-cell-vertical, * [class^="col-"] .ms-webpart-chrome-vertical {
+    display: block; /*forces zone to stay within confines of responsive zone*/
+}
+* [class^="col-"] .ms-WPBody > table, * [class^="col-"] .ms-WPBody > table > tbody, * [class^="col-"] .ms-WPBody > table > tbody > tr, * [class^="col-"] .ms-WPBody > table > tbody > tr > td {
+	display: block;
+	width: 100%;
+}
+* [class^="col-"] .ms-WPBody > table img {
+	/*width: 100%;*/ /*reset back to bootstrap for web part images*/
+}
+.ms-SPZone.ms-webpart-zone {
+    padding: 5px;
+}
+.ms-SPZone > .s4-wpcell, .ms-SPZone > .s4-wpcell-plain, .ms-rtestate-write > .ms-rte-wpbox > div > .s4-wpcell, .ms-rtestate-write > .ms-rte-wpbox > div > .s4-wpcell-plain {
+    padding: 5px 5px 10px;
+}
+/*web part properties*/
+/*edit mode table fixes*/
+#MSOTlPn_WebPartPageDiv > tbody > tr > td:first-child {
+	padding-right: 10px; /*without the padding the left column overflows over the webpart properties toolpane*/
+}
+/*end edit mode table fixes*/
+
+.ms-ToolPaneBody select, .ms-ToolPaneBody textarea, .ms-ToolPaneBody input[type="text"], .ms-ToolPaneBody input[type="password"], .ms-ToolPaneBody input[type="datetime"], .ms-ToolPaneBody input[type="datetime-local"], .ms-ToolPaneBody input[type="date"], .ms-ToolPaneBody input[type="month"], .ms-ToolPaneBody input[type="time"], .ms-ToolPaneBody input[type="week"], .ms-ToolPaneBody input[type="number"], .ms-ToolPaneBody input[type="email"], .ms-ToolPaneBody input[type="url"], .ms-ToolPaneBody input[type="search"], .ms-ToolPaneBody input[type="tel"], .ms-ToolPaneBody input[type="color"], .ms-ToolPaneBody .uneditable-input {
+	margin-bottom: 0px;
+	width: auto;
+	height: auto;
+	line-height: 20px;
+}
+.ms-ToolPaneBody label {
+	display: inline-block;
+	margin-bottom: 0px;
+}
+/*end web part properties*/
+
+/*Gallery Grid in Banner/Homepage2*/
+ul.three-up {
+	display: block;
+	overflow: hidden;
+	margin: 0 -8px;
+	padding: 0;
+}
+ul.three-up > li {
+	display: block;
+	float: left;
+	height: auto;
+	margin: 0 8px 8px;
+	width: 27%;
+	list-style: none;
+}
+ul.three-up > li:nth-child(3n+1) {
+	clear: none;
+}
+/*end web part zones*/
+/* end main content areas */
+
+/*Fullscreen*/
+.ms-fullscreenmode #mainbody, .b3-fullscreenmode #mainbody {
+	margin-left: 15px;
+	width: 100%;
+}
+.ms-fullscreenmode #sideNavBox, .b3-fullscreenmode #sideNavBox {
+	display: none;
+}
+/*end template styles */
+
+/*responsive*/
+@media (min-width: 768px) {
+	/*fix ribbon back to normal*/
+	#suiteBar {
+		display: table-row;
+		height: 30px;
+        display: none;
+	}
+	#suiteBarLeft, #suiteBarRight {
+		display: table-cell;
+		width: 100%;
+        background-color: #FFFFFF;
+	}
+	#suiteBarRight {
+		width: auto;
+	}
+	#suiteBarRight .ms-core-deltaSuiteBarRight {
+		float: none;
+	}
+	/*end ribbon*/
+	
+	/*search box*/
+	.header .searchbox {
+		display: block;
+		float: right;
+		clear: none;
+	}
+	/*end search box*/
+
+	/*top nav*/
+	/*because of the nested nature of OOTB top nav, we must treat the first element differently*/
+	#topnavbar {
+		height: auto;
+	}
+	#topnavbar .nav-collapse {
+		margin-top: 0px;
+	}
+	/*reset back to inline for normal view*/
+	#topnavbar .ms-core-listMenu-horizontalBox {
+		display: block;
+	}
+	#topnavbar .nav ul.static {
+		display: inline-block;
+	}
+	#topnavbar .nav li.static {
+		display: inline-block;
+		width: auto;
+	}
+	#topnavbar .nav li.static > .menu-item {
+		display: inline-block;
+		height: 49px;
+		padding: 15px 10px 15px 0px;
+	}
+	/*hide or provide padding for downdown arrow*/
+	#topnavbar .ms-core-listMenu-horizontalBox .dynamic-children.additional-background {
+		padding-right: 20px;
+		width: auto;
+		display: inline;
+	}
+	/*show the edit nav link again for larger devices*/
+	#topnavbar .nav ul.root > li.ms-navedit-editArea {
+		display: inline-block;
+	}
+	#topnavbar .nav .ms-navedit-editLinksText {
+	    height: 47px;
+	    line-height: 1em;
+	    padding: 15px 0 15px 10px;
+	    display: block;
+	}
+	/*we need to override where SP is placing dynamic nav items*/
+	
+     /*Commented by Sam@Cadient during review due to SP displaying sub-menu item without click*/
+     /*
+    #topnavbar .nav ul.static > li.dynamic-children > ul.dynamic {
+		position: absolute !important;
+		top: 49px !important;
+		left: 0 !important;
+	}
+    */
+	#topnavbar ul.dynamic > li {
+		min-width: 150px;
+		position: relative;
+		white-space: nowrap;
+	}
+	#topnavbar ul.dynamic > li:first-child {
+		border-top: 0px transparent none;
+	}
+	#topnavbar .nav li.dynamic-children.hover > ul.dynamic {
+		display: block !important;
+	}
+	#topnavbar li.dynamic > .menu-item {
+		height: 34px;
+		line-height: 1em;
+		margin: 0;
+		padding: 9px 15px;
+	}
+	#topnavbar .ms-core-listMenu-horizontalBox .dynamic-children.additional-background {
+	    background-image: url("/_layouts/15/images/menu-down.gif");
+	}
+	#topnavbar .ms-core-listMenu-horizontalBox .dynamic .dynamic-children.additional-background {
+		background-image: url("/_layouts/15/images/menu-right.gif");
+	}
+	/*3rd level +*/
+	#topnavbar .nav ul.dynamic > li.dynamic-children > ul {
+		/*position: absolute !important;*/
+		/*top: 0px !important;*/
+		/*left: 100% !important;*/
+	}
+	/*end top nav*/
+	
+	/*left nav */
+	#sideNavBox {
+	    float: none;
+		margin: 0px;
+	    width: auto;
+	}
+	#sideNavBox.col-md-3 {
+	    float: left;
+	    width: 25%;
+	}
+	/*end left nav */
+}
+/*end responsive*/
+
+
+/*============ Incyte SharePoint 2013 :: Brand Style  ==========*/
+.masthead{
+
+    background: rgb(221,239,248);
+    background: -moz-linear-gradient(top,  rgb(221,239,248) 0%, rgb(224,241,249) 14%, rgb(227,243,250) 14%, rgb(227,243,250) 21%, rgb(230,244,250) 21%, rgb(230,244,250) 29%, rgb(233,245,251) 30%, rgb(235,246,252) 36%, rgb(236,247,252) 49%, rgb(239,248,253) 50%, rgb(244,251,254) 100%);
+    background: -webkit-linear-gradient(top,  rgb(221,239,248) 0%,rgb(224,241,249) 14%,rgb(227,243,250) 14%,rgb(227,243,250) 21%,rgb(230,244,250) 21%,rgb(230,244,250) 29%,rgb(233,245,251) 30%,rgb(235,246,252) 36%,rgb(236,247,252) 49%,rgb(239,248,253) 50%,rgb(244,251,254) 100%);
+    background: linear-gradient(to bottom,  rgb(221,239,248) 0%,rgb(224,241,249) 14%,rgb(227,243,250) 14%,rgb(227,243,250) 21%,rgb(230,244,250) 21%,rgb(230,244,250) 29%,rgb(233,245,251) 30%,rgb(235,246,252) 36%,rgb(236,247,252) 49%,rgb(239,248,253) 50%,rgb(244,251,254) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ddeff8', endColorstr='#f4fbfe',GradientType=0 );
+
+    /*height:280px;*/
+	/*background: transparent url('../img/header-bg-bottom.png') repeat-x 0px 0px;*/
+	/*min-height: 224px;*/
+	/*background-size: 100% 100%;	*/
+}
+
+
+@-ms-viewport{
+  width: device-width;
+}
+.navbar {
+    color: #2aace3 !important;
+    font-size: 18px  !important;
+    font-family: "Lato Heavy","Segoe UI Light","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif  !important;
+}
+.navbar-inner{
+	border: 0px  !important;
+    background-color: transparent  !important;
+    box-shadow: none  !important;
+    background-image: none  !important;
+    border-radius: 0px  !important;	
+}
+.navbar-inner ul li a{
+	font-family: "Lato Heavy","Segoe UI Light","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif  !important;
+    color: #2aace3 !important;
+    font-size: 18px  !important;	
+}
+.navbar-inner ul li a.selected{
+	font-family: "Lato Heavy","Segoe UI Light","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif  !important;
+    color: #01679b !important;
+    font-size: 18px  !important; 	
+}
+.navbar{
+    margin-top: 0px !important;
+}
+.navbar-default{
+	background-color: transparent !important;
+    border-color: transparent;
+}
+#topnavbar .nav li.static.shown > .menu-item, #topnavbar .nav li.static:hover > .menu-item{
+	background-color: transparent;
+    box-shadow: none;
+    border: 0px solid;	
+}
+#DeltaSiteLogo, .searchbox{
+	margin-top: 10px;
+}
+.ms-srch-sb-searchImg, .ms-srch-sb-searchImg:hover{
+    left: -54px;
+    top: 0px;
+    position: absolute;
+    max-width: none !important;
+    width: auto;
+}
+.ms-srch-sb > .ms-srch-sb-searchLink {
+    margin-left: -1px;
+    height: 30px;
+    width: 30px;
+}
+.ms-srch-sb>input{
+	padding: 8px 1px 0px 5px;
+}
+#DeltaPlaceHolderSearchArea #SearchBox{
+	margin-top: 12px;
+}
+#DeltaPlaceHolderSearchArea{
+	display: inline-block;
+}
+.ft-logo-div{
+	float: left;
+    width: 93px;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.ft-links-div{
+	float: left;
+   /* width: 80%;*/
+    padding-left: 40px;
+    margin-top: 30px;
+}
+.ft-squ-img-div{
+	float: right;
+	padding-top: 30px;
+}
+.ft-hz-line{
+    border-top: 1px solid #ccc;
+    margin-top: 30px;
+}
+ul.ft-links{
+	list-style-type: none;
+    margin: 0 0 15px 0;
+    padding: 0px 0 0 0px;
+}
+ul.ft-links li{
+	display: inline-block;
+    padding-right: 25px;
+    font-size: 18px;
+    text-transform: uppercase;	
+}
+ul.ft-links li a{
+	font-family: "Segoe UI","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif !important;
+    color: #2aace3 !important;
+    font-size: 15px !important;
+}
+p.ft-para{
+     font-family: "Segoe UI","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif !important;
+    font-size: 12px !important;
+    color: #555759 !important;
+    text-align:center !important;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: transparent;
+}
+#footer{
+	margin-bottom: 30px;
+}
+.b3-fullscreenmode #DeltaBreadcrumbDropdown{
+	display: none;
+}
+#topnavbar .nav ul li ul li.static {
+    padding-left: 30px;
+}
+.ms-fullscreenmode #main, .b3-fullscreenmode #main {
+	overflow-x: hidden;
+}
+.dpt-mobile-only{
+	display: none;
+}
+.department-name h2{
+	color: #fff !important;
+} 
+.dept-name-content{
+	color: #fff !important;
+}
+.department-name{
+	padding-top: 40px !important;
+	height: auto !important;
+}
+table.ms-listviewtable{
+	width: 100%;
+} 
+table.ms-listviewtable td .ms-list-itemLink{
+	padding-top: 8px;
+}
+table.ms-listviewtable td .ms-list-TitleLink{
+	width: 100%;
+	padding: 10px 6px 3px 5px;
+}
+table.ms-listviewtable tbody > tr > td.ms-vb-lastCell {
+    padding-right: 0px;
+}
+@media (min-width : 768px){
+	.masthead {
+	    /*background-size: 100% 100%;*/
+	}
+	h1#pageTitle{
+		margin-top: 0px;
+	}
+}
+@media (max-width: 767px) {
+	.ft-logo-div img{
+		max-width: 100%;
+	}
+        #suiteBarLeft, #suiteBarRight {
+        background-color: #FFFFFF;
+    }
+	.dpt-owner-img-container img {
+	    width: 100px;
+	    height: 100px;
+	}	
+	.searchbox{
+		margin-top: 15px; 
+	}
+	#DeltaSiteLogo{
+		margin-top: 20px;
+	}
+	.squ-img{
+	    float: right;
+	    margin-top: -55px;
+	}
+	#DeltaPlaceHolderSearchArea{
+		display: block;
+	}
+	#SearchBox{
+		margin-right: 75px;
+		margin-top: 30px;
+	}
+	.ms-srch-sb>input{
+		width: 100%;
+	    height: 35px;
+	    padding-top: 0px;		
+	}
+	.searchbox{
+	    width: 100%;
+	    display: block;
+	}
+	.ms-srch-sb{
+		display: block;
+        height: 35px;
+	}
+	.ms-srch-sb-searchLink{
+	    float: right;
+	    margin-top: -34px;	
+	}
+	.navbar-toggle .icon-bar{
+	    width: 35px;
+	    height: 7px;
+	    border-radius: 1px;
+	    background-color: #2aace3 !important;		
+	}
+	.navbar-default .navbar-toggle, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
+	    top: -125px;
+	    background-color: transparent !important;
+	    border-color: transparent;
+	    font-weight: 300;		
+	}
+	ul.ft-links, div.ft-squ-img-div{
+		/*display: none;*/
+	
+	}
+	ul.ft-links li a {
+    font-family: "Lato","Segoe UI Light","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif !important;
+    color: #2aace3 !important;
+    font-size: 12px !important;
+	}
+	.nav.navbar-collapse.in{
+		background-color: #2aace3; 
+		margin-bottom: 35px;
+		/*margin-top: -55px;*/
+		float: left;
+    	width: 100%;		
+	}
+	.navbar-inner{
+	    padding-top: 0px;
+	    margin-top: 0px;
+	}
+	.nav-mob-req{
+		padding-right: 0px;
+		padding-left: 0px;
+		margin-top: -55px;
+		/*overflow: hidden;*/
+	}
+	.navbar-inner ul li a{
+    	color: #fff !important;
+	    font-family: "Lato","Segoe UI Light","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif !important;		
+	}
+	.navbar-inner ul li a.selected{
+    	color: #fff !important;
+	    font-family: "Lato Heavy","Segoe UI Light","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif  !important;
+	}
+	#main{
+		margin-top: -35px;
+		background-color: #fff;
+	}
+	.ft-links-div{	
+    	width: 50%;
+	}
+	 #mainbody {
+	    margin-left: 0px !important;	    
+	}
+	.row {
+	    margin-right: 0px;
+	    margin-left: 0px;
+	}
+	#mainbody #DeltaPlaceHolderMain .row{
+    	margin-left: -15px;
+    	margin-right: -15px;
+	}
+	.headtitle {
+		margin-left: 0px;
+	}
+	.mar-align-mobile{
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+	.department-name{
+	    position: relative !important;
+	    top: 0px !important;
+	    height: auto !important;
+    	padding: 20px 10px 20px 10px !important;
+	    margin-bottom: 20px !important;
+	    opacity: 1 !important;		
+	}
+	.dpt-banner img {
+	    width: 100% !important;
+	    height: auto !important;
+	}
+	.dept-name-title{
+		margin-top: 0px !important;
+	}
+	.dpt-owner-img-container{
+		display: none;
+	}
+	.dpt-owner-img-container.dpt-mobile-only{
+		display: block;
+	}
+	.dpt-owner-img-container.dpt-mobile-only .col-md-12 .col-xs-6{
+		padding-right: 0px;
+		padding-left: 0px;
+	}
+	.dpt-owner-img-container h4, .hm-people-slider h4{
+		margin: 0px 0px 0px;
+	}
+	.dpt-owner-img-container h5, .hm-people-slider h5{
+		margin: 5px 0px 0px;
+	}
+	.department-name h2{
+		margin-top: 0px;
+	}
+	.left-links-mob-hide{
+		display: none;
+	}
+	.own-col-img{
+		float: left;
+    	margin-right: 15px;
+	}
+	#topnavbar .nav ul li ul li.static {
+	    padding-left: 0px;
+	}
+	#topnavbar .nav ul li.static.ms-verticalAlignTop.ms-listMenu-editLink.ms-navedit-editArea{
+		display: none;
+	}
+	.dpt-full-slider .bxslider li {
+	    width: 155px !important;
+	}
+	/*=== Resources Webpart Hardcoded Style ====*/
+	table.ms-listviewtable td .ms-list-TitleLink{
+		padding: 6px 6px 3px 5px;
+	}	
+	#resources-wp table{
+		margin-top: 0px;
+	} 
+	#resources-wp table.ms-listviewtable{
+		width: 100%;
+	}
+	#resources-wp table tr{
+		width: 100%;
+	}
+	#resources-wp table tr td{
+		width: 100%;
+	}  
+	#resources-wp table tr td table tr{
+	    width: 100% !important;
+	    /*display: block;*/
+	    /*margin-top: 20px;*/
+	    /*float: left;*/
+	    height: auto;	    
+	    padding-right: 15px;
+	}
+	#resources-wp table tr td table tr td{
+	    padding: 0px 0 10px 0;
+	    width: 100%;
+	    display: block;
+	    word-wrap: break-word;
+	}
+	#resources-wp table tr td table tr td.ms-cellstyle.ms-vb-icon{
+		width: 16px;
+	    float: left;
+	    display: block;
+	}
+	#resources-wp table.ms-listviewtable td{
+		display: none;
+	}	
+	#resources-wp table tr td table tr td:nth-child(2){
+		display: block;
+	}
+	#resources-wp td.ms-vb.ms-bottompagingline table{
+		text-align: center;
+	}
+	#resources-wp table tr td table tr td.ms-paging{
+	    width: auto;
+	    display: inline-block;
+	}
+	#resources-wp table.ms-listviewtable th{
+		display: none; 
+	}	
+	#resources-wp table.ms-listviewtable th.ms-vh2:nth-child(2){
+		display: block;
+	}	
+	#resources-wp table td.ms-bottompagingline table tr td{
+		width: auto !important;
+    	display: inline-block !important;
+    	margin-top: 4px;	  	
+	}
+	/*=== Quick Links Webpart Hardcoded Style ====*/
+	#quicklinks-wp table{
+		width: 100%;
+	}	
+	#quicklinks-wp table tr td{
+		width: 100%;
+		padding: 0px 0 0 0 !important;
+	}
+	#quicklinks-wp table.ms-listviewtable td .ms-list-TitleLink {
+	    width: 100%;
+	    padding: 10px 6px 3px 5px;
+	}
+	#quicklinks-wp table.ms-listviewtable td .ms-list-itemLink{
+		text-align: right;
+	}
+	#quicklinks-wp table.ms-listviewtable th{
+		display: none; 
+	}	
+	#quicklinks-wp table.ms-listviewtable th.ms-vh2:nth-child(2){
+		display: block;
+	}
+	/*Hardcoded style for resources webpart to match with design comp*/
+	/*#MSOZoneCell_WebPartWPQ6 table.ms-listviewtable th{
+		display: none; 
+	}
+	#MSOZoneCell_WebPartWPQ6 table.ms-listviewtable th.ms-vh2:nth-child(2){
+		display: block;
+	}
+	#MSOZoneCell_WebPartWPQ6 table.ms-listviewtable td{
+		display: none;
+	}	
+	#MSOZoneCell_WebPartWPQ6 table.ms-listviewtable td.ms-vb-icon{
+		display: block;
+	    width: 16px;
+	    float: left;		
+	}
+	#MSOZoneCell_WebPartWPQ6 table.ms-listviewtable td.ms-vb2:nth-child(2){
+		display: block;
+	}*/		
+	/*===== Contacts Webpart Hardcoded Style ====*/	
+	#contacts-wp table.ms-listviewtable thead{
+		display: none; 
+	}
+	#contacts-wp table.ms-listviewtable tbody tr{
+	    width: 50%;
+	    float: left;
+	    margin-bottom: 25px;		
+	}
+	#contacts-wp table.ms-listviewtable tbody tr td{
+	    width: 100%;
+	    display: block;	
+	    padding: 0px !important;	
+	}
+	#contacts-wp table.ms-listviewtable tbody > tr > td.ms-vb-lastCell{
+		word-wrap: break-word;
+	}
+	#contacts-wp table.ms-listviewtable tbody tr td a{
+		display: block;
+		width: 85%;
+	}		
+}
+@media (max-width: 380px) {
+	.ft-links-div {	   
+	    width: 66%;
+	    padding-left: 20px;
+	}
+	.ft-logo-div {    
+    	width: 60px;
+	}
+	.ms-core-pageTitle{
+		font-size: 2.0em;
+	}
+	.dpt-owner-img-container img {
+	    width: 100px;
+	    height: 108px;
+	}		
+} 
+@media only screen and (min-device-width : 1360px) and (max-device-width : 1400px)
+{
+	.ft-logo-div {    
+    	width: 90px;
+	}
+} 
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) 
+and (orientation : portrait) { 
+	.navbar-inner ul li a{
+		font-size: 14px !important;
+	}
+	.navbar-inner ul li a.selected{
+		font-size: 14px !important;
+	}
+	#topnavbar .nav ul.root > li.ms-navedit-editArea{
+		display: none;
+	}
+	.left-links-mob-hide{
+		display: none;
+	}
+	.department-name h2{
+		margin-top: 0px !important;
+	}
+	.dpt-owner{
+		margin-top: 20px;
+	}
+	.b3-fullscreenmode.ms-backgroundImage #mainbody{
+		padding-right: 45px;
+	}
+	.dpt-owner-img-container span.img-span { 
+	    float: left;
+	    padding-right: 20px;
+	}
+	#contacts-wp table.ms-listviewtable tbody > tr > td.ms-vb-lastCell a{
+	    width: 55%;
+	    display: block;
+	    word-wrap: break-word;
+	}
+	.responsive-width{
+		width: 100%;
+	}			
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) 
+and (orientation : landscape) { 
+	#contacts-wp table.ms-listviewtable tbody > tr > td.ms-vb-lastCell a{
+	    width: 60%;
+	    display: block;		
+	    word-wrap: break-word;
+	}
+}
+/*======= Web Part Custom CSS : Start ========*/
+table th .ms-vh-div .ms-headerSortTitleLink{
+	/*font-weight: bold !important;
+    font-size: 16px;*/
+}
+h2.ms-webpart-titleText{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;	
+}
+.toc-layout-main .dfwp-list .level-section>ul>li {
+    margin-left: 0em;
+    margin-right: 0em;
+}
+.toc-layout-main .dfwp-list .level-bullet{
+	padding-left: 15px;
+    padding-right: 0px;
+    background: none;
+} 
+.toc-layout-main .dfwp-list .level-bullet a:after{
+	content: "\203A";
+	padding-left: 5px; 
+}
+.department-name{
+	top: 0px;
+}
+.previous-post ul li a:after{
+	/*content: "\203A" !important;*/
+	padding-left: 5px !important; 
+}
+.ms-bottompaging{
+	margin: 0px auto;
+}
+.ms-promlink-button.ms-promlink-button-enabled{
+	border: 0px solid;
+	padding: 0px;
+}
+#pagingWPQ4next a .ms-promlink-button-image, #pagingWPQ4prev a .ms-promlink-button-image{
+	display: none;
+}
+#pagingWPQ4prev a{
+ 	text-align: right;
+}
+#pagingWPQ4next a:hover, #pagingWPQ4prev a:hover{
+	background-color: transparent;
+	text-decoration: none;
+}
+#pagingWPQ4next a:after{
+    left: 0px;
+    top: -4px;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    content: "\203A";
+    font-size: large; 
+}
+
+#pagingWPQ4prev a:after{
+    left: 0px;
+    top: -4px;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    content: "\2039";
+    font-size: large; 
+}
+.ms-listviewtable td.ms-vb-icon > img{
+	max-width: 200%;
+	position: relative;
+    top: 6px;	
+}
+.ms-listviewtable .ms-vb2, .ms-listviewtable .ms-vb-lastCell{
+	padding-top: 15px;
+}
+.ms-listviewtable .ms-vb-lastCell span.ms-spimn-presenceLink{
+	display: none; 
+}
+/*.ms-ellipsis-a:after, .ms-ellipsis-a-tile:after{
+    left: 0px;
+    top: 2px;	
+    position: relative;
+    content: "\2026";
+}*/
+.ms-ellipsis-a, .ms-ellipsis-a-tile{
+	text-decoration: none;
+}
+.font-size-24px{
+	font-size: 24px;
+}
+.font-weight-bold{
+	font-weight: bold;
+}
+.small-image-container img{
+	margin: 0px 0px 10px 0px !important;
+}
+ul.blog-cont-list{
+	list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+ul.blog-cont-list li{
+	padding: 0 0 10px 0;
+    margin: 0px;
+    font-size: 14px;	
+}
+table.ms-listviewtable{
+	width: 100%;
+}
+table.ms-listviewtable td.ms-vb2 a.ms-listlink:after{
+    top: -6px;
+    position: relative;
+    content: "\2026";
+    text-align: right;
+    float: right;	
+}
+h1{
+	/* [ReplaceColor(themeColor:"SiteTitle")] */
+}
+h1#pageTitle{
+	/* [ReplaceColor(themeColor:"SiteTitle")] */
+}
+.bx-wrapper .bx-controls-direction a{
+	cursor: pointer;
+}
+.ms-vb-title .ms-vb {
+    padding: 12px 6px 3px 4px;
+}
+/*======= Web Part Custom CSS : End ========*/

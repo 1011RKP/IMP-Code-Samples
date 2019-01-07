@@ -1,0 +1,140 @@
+﻿<div class="row teamMembers" id="teamMemberLink" style="margin-top: 10px;"></div>
+<div class="container" style="border-bottom: 1px solid #d8d3d3;padding: 0;margin-left: -15px;margin-right: 35px;">&nbsp;</div>
+<div id="userInfo" ng-cloak style="/*margin-left: -30px;*/margin-top: 10px;" class="visible-lg visible-md">
+    <div uib-carousel active="model.active" interval="9000" >
+        <div uib-slide ng-repeat="startSlide in model.peopleallinfo track by $index" index="$index">
+            <div class="container-fluid" style="display: block; margin: auto; text-align: center;align-items: center;">
+                <div ng-repeat="slide in model.people | limitTo :3:startSlide.startSlide">
+                    <div class="col-md-4 col-lg-4 udTile visible-lg">
+                        <div class="row">
+                            <div ng-show="slide.region == 'US'" class="udInfoSection">
+                                <div class="udAvatarInfo">
+                                    <h6 style="color:#0065A1"><i class="fa fa-user" aria-hidden="true">  </i> {{slide.fullname | cut:true:25:' ...'}}</h6>
+                                    <h6 style="color:#0065A1"> {{slide.title| cut:true:25:' ...'}}</h6>
+                                </div>
+                                <div class="udAvatar" ng-show="slide.url != 'noImage'">
+                                    <img ng-src="{{slide.url}}" class="img-responsive" />
+                                </div>
+                                <div class="photo" ng-show="slide.url == 'noImage'">
+                                    <i class="fa fa-user fa-3x noimage_user" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h6 style="color:#0065A1"><i class="fa fa-phone" aria-hidden="true"></i> {{slide.phoneNumber}}</h6>
+                                    <!--<h6 style="color:#0065A1"><i class="fa fa-registered" aria-hidden="true"></i> Hr Team Member</h6>-->
+                                    <h6 style="color:#0065A1;height:35px;"><a href="mailto:{{slide.email}}"><i class="fa fa-envelope-o" aria-hidden="true"></i> {{slide.email}}</a></h6>
+                                </div>
+                            </div>
+                            <div ng-show="slide.region == 'Global'" class="udInfoSection_global">
+                                <div class="udAvatarInfo_global">
+                                    <h6 style="color:white"><i class="fa fa-user" aria-hidden="true">  </i> {{slide.fullname | cut:true:25:' ...'}}</h6>
+                                    <h6 style="color:white"> {{slide.title| cut:true:25:' ...'}}</h6>
+                                </div>
+                                <div class="udAvatar_global" ng-show="slide.url != 'noImage'">
+                                    <img ng-src="{{slide.url}}" class="img-responsive" />
+                                </div>
+                                <div class="photo_global" ng-show="slide.url == 'noImage'">
+                                    <i class="fa fa-user fa-3x noimage_user" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h6 style="color:white"><i class="fa fa-phone" aria-hidden="true"></i> {{slide.phoneNumber}}</h6>
+                                    <!--<h6 style="color:#0065A1"><i class="fa fa-registered" aria-hidden="true"></i> Hr Team Member</h6>-->
+                                    <h6 style="color:white;height:35px;"><a href="mailto:{{slide.email}}"><i class="fa fa-envelope-o" aria-hidden="true"></i> {{slide.email}}</a></h6>
+                                </div>
+                            </div>
+                            <div ng-show="slide.region == 'Europe'" class="udInfoSection_europe">
+                                <div class="udAvatarInfo_europe">
+                                    <h6 style="color:white"><i class="fa fa-user" aria-hidden="true">  </i> {{slide.fullname | cut:true:25:' ...'}}</h6>
+                                    <h6 style="color:white"> {{slide.title| cut:true:25:' ...'}}</h6>
+                                </div>
+                                <div class="udAvatar_europe" ng-show="slide.url != 'noImage'">
+                                    <img ng-src="{{slide.url}}" class="img-responsive" />
+                                </div>
+                                <div class="photo_europe" ng-show="slide.url == 'noImage'">
+                                    <i class="fa fa-user fa-3x noimage_user" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h6 style="color:white"><i class="fa fa-phone" aria-hidden="true"></i> {{slide.phoneNumber}}</h6>
+                                    <!--<h6 style="color:#0065A1"><i class="fa fa-registered" aria-hidden="true"></i> Hr Team Member</h6>-->
+                                    <h6 style="color:white;height:35px;"><a href="mailto:{{slide.email}}"><i class="fa fa-envelope-o" aria-hidden="true"></i> {{slide.email}}</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 udTile visible-md">
+                        <div class="row">
+                            <div ng-show="slide.region == 'US'" class="udInfoSection">
+                                <div class="udAvatarInfo_md">
+                                    <p style="color:#0065A1;font-size:12px;"><i class="fa fa-user" aria-hidden="true">  </i>                {{slide.fullname }}</p><!--| cut:true:20:' ...'-->
+                                </div>
+                                <div class="udAvatar" ng-show="slide.url != 'noImage'">
+                                    <img ng-src="{{slide.url}}" class="img-responsive" />
+                                </div>
+                                <div class="photo" ng-show="slide.url == 'noImage'">
+                                    <i class="fa fa-user fa-3x noimage_user" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <p style="color:#0065A1;font-size:12px;"><i class="fa fa-phone" aria-hidden="true"></i> {{slide.phoneNumber}}</p>
+                                    <!--<h6 style="color:#0065A1"><i class="fa fa-registered" aria-hidden="true"></i> Hr Team Member</h6>-->
+                                    <p class="ud_sm_phone" style="color:#0065A1;font-size:12px;"><a href="mailto:{{slide.email}}"><i class="fa fa-envelope-o" aria-hidden="true"></i> {{slide.email}}</a></p>
+                                </div>
+                            </div>
+                            <div ng-show="slide.region == 'Global'" class="udInfoSection_global">
+                                <div class="udAvatarInfo_md">
+                                    <p style="color:#0065A1;font-size:12px;"><i class="fa fa-user" aria-hidden="true">  </i>                {{slide.fullname}}</p>
+                                </div>
+                                <div class="udAvatar_global" ng-show="slide.url != 'noImage'">
+                                    <img ng-src="{{slide.url}}" class="img-responsive" />
+                                </div>
+                                <div class="photo_global" ng-show="slide.url == 'noImage'">
+                                    <i class="fa fa-user fa-3x noimage_user" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <p style="color:white;font-size:12px;"><i class="fa fa-phone" aria-hidden="true"></i> {{slide.phoneNumber}}</p>
+                                    <!--<h6 style="color:#0065A1"><i class="fa fa-registered" aria-hidden="true"></i> Hr Team Member</h6>-->
+                                    <p class="ud_sm_phone" style="color:white;font-size:12px;"><a href="mailto:{{slide.email}}"><i class="fa fa-envelope-o" aria-hidden="true"></i> {{slide.email}}</a></p>
+                                </div>
+                            </div>
+                            <div ng-show="slide.region == 'Europe'" class="udInfoSection_europe">
+                                <div class="udAvatarInfo_md">
+                                    <p style="color:#0065A1;font-size:12px;"><i class="fa fa-user" aria-hidden="true">  </i>                {{slide.fullname}}</p>
+                                </div>
+                                <div class="udAvatar_europe" ng-show="slide.url != 'noImage'">
+                                    <img ng-src="{{slide.url}}" class="img-responsive" />
+                                </div>
+                                <div class="photo_europe" ng-show="slide.url == 'noImage'">
+                                    <i class="fa fa-user fa-3x noimage_user" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <p style="color:white;font-size:12px;"><i class="fa fa-phone" aria-hidden="true"></i> {{slide.phoneNumber}}</p>
+                                    <!--<h6 style="color:#0065A1"><i class="fa fa-registered" aria-hidden="true"></i> Hr Team Member</h6>-->
+                                    <p class="ud_sm_phone" style="color:white;font-size:12px;"><a href="mailto:{{slide.email}}"><i class="fa fa-envelope-o" aria-hidden="true"></i> {{slide.email}}</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row visible-sm visible-xs">&nbsp;</div>
+<div id="myCarousel" class="carousel slide visible-sm visible-xs" data-ride="carousel">
+    <div id="myCarousel_inner" class="carousel-inner" role="listbox">
+
+    </div>
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left test" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right test" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<div class="row"> &nbsp;</div>
+
+
+

@@ -1,0 +1,214 @@
+﻿var siteownerBannerApp = angular.module('siteownerBannerApp', ['ngSanitize', 'ngAnimate', 'ui.bootstrap']);
+var siteownerCtrl = function (dataService) {  //debugger
+    var model = this;
+    model.$onInit = function () {         
+        dataService.getConfigData().then(function (data) {
+            //debugger
+            for (var i = 0; i < data.length; i++) {
+                var title = data[i].Title; //debugger;
+                switch (title) {                  
+                    case "Team Members":
+                        dataService.getsiteOwner(data[i].Title).then(function (data) {
+                            var obj = data[0].AttachmentFiles.results;
+                            if (obj.length == 0) {
+                                //debugger;
+                                model.url = "notUploded",
+                                model.id = 0;
+                                model.title = data[0].Title;
+                                model.name = data[0].Full_x0020_Name;
+                                model.email = data[0].Email;
+                                model.info = data[0].Info;
+                                model.phoneNumber = data[0].Phone_x0020_Number;
+                                model.location = data[0].Location;
+
+                            }
+                            else {
+                                model.url = obj[0].ServerRelativeUrl,
+                                model.id = 0;
+                                model.title = data[0].Title;
+                                model.name = data[0].Full_x0020_Name;
+                                model.email = data[0].Email;
+                                model.info = data[0].Info;
+                                model.phoneNumber = data[0].Phone_x0020_Number;
+                                model.location = data[0].Location;
+                            }
+                        });
+                        break;
+                }
+            }
+        });        
+    }
+    $(function () {
+        Profile.load();
+    });
+};
+   siteownerBannerApp.component('siteOwner', {
+        templateUrl: '/sites/common/SiteAssets/Dept_HREU/siteOwner/HTML/WidgetTemplate/soTemplate.html',
+        controllerAs: "model",
+        controller: ["dataService", siteownerCtrl]
+    });
+
+    siteownerBannerApp.service('dataService', ['$http', '$q', function ($http, $q) {
+
+        this.getConfigData = function () {
+            var restUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Config Settings')/items?";
+            var dfd = $q.defer();
+            $.ajax({
+                url: restUrl,
+                type: "GET",
+                cache: false,
+                headers: { "accept": "application/json;odata=verbose" },
+                success: function (data) {
+                    dfd.resolve(data.d.results);
+                },
+                error: function (error) {
+                    console.log(JSON.stringify(error));
+                }
+            });
+            return dfd.promise;
+        };
+
+        var today = new Date();
+        this.getsiteOwner = function (data) {        
+            var today = new Date();
+            var siteOwner = data;
+            var select = "?$select=ID,Title,Email,Region,Phone_x0020_Number,Full_x0020_Name,Picture,AttachmentFiles&$expand=AttachmentFiles&$filter=Job_x0020_Type eq 'Site Owner'";
+            var restUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('"+ siteOwner +"')/items" + select;// + filter
+            var dfd = $q.defer();
+            $.ajax({
+                url: restUrl,
+                type: "GET",
+                cache: false,
+                headers: { "accept": "application/json;odata=verbose" },
+                success: function (data) {
+                    var personDetails = [];
+                    dfd.resolve(data.d.results);
+                },
+                error: function (error) {
+                    console.log(JSON.stringify(error));
+                }
+            });
+
+            return dfd.promise;
+        };
+        this.getannouncements = function (data) {        
+            var today = new Date();
+            var deptAnnounce = data;
+			var filter = "?$filter=(Expires ge datetime'" + today.toISOString() + "')"
+			var restUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('" + deptAnnounce + "')/items" + filter;
+            var dfd = $q.defer();
+            $.ajax({
+                url: restUrl,
+                type: "GET",
+                cache: false,
+                headers: { "accept": "application/json;odata=verbose" },
+                success: function (data) {
+                    var announcment = [];
+                    $.each(data.d.results, function (key, val) {  
+                        var announcmentsObj = {
+                            title: val.Title,
+                            id: val.ID,
+                        };
+                        announcment.push(announcmentsObj);
+                    });
+                    dfd.resolve(data.d.results);
+                },
+                error: function (error) {
+                    console.log(JSON.stringify(error));
+                }
+            });
+            return dfd.promise;
+        };
+        this.getdepartmentTitile = function () {
+            var restUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/web/title";
+            var dfd = $q.defer();
+            $.ajax({
+                url: restUrl,
+                type: "GET",
+                cache: false,
+                headers: { "accept": "application/json;odata=verbose" },
+                success: function (data) {//debugger
+                    var title = data.d.Title;
+                    $('.dept_Dynamic_Title').append("Welcome to the " + title + " Site");
+                },
+                error: function (error) {
+                    console.log(JSON.stringify(error));
+                }
+            });
+            return dfd.promise;
+        };
+        this.setbannerImage = function (data) {
+            var bannerimag = data;
+            var today = new Date();
+            var select = "?$select=Attachments,AttachmentFiles,Title&$expand=AttachmentFiles&$orderby=Created desc&$top=1";
+            var restUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('" + bannerimag + "')/items?" + select;// + filter
+            var dfd = $q.defer();
+            $.ajax({
+                url: restUrl,
+                type: "GET",
+                cache: false,
+                headers: { "accept": "application/json;odata=verbose" },
+                success: function (data) {
+                    //debugger
+                    var attachments = data.d.results[0].AttachmentFiles
+                    if (attachments.results.length > 0) {
+                        //console.log(attachments.results[0].ServerRelativeUrl);
+                        $('.banner').css('background-image', 'url(' + attachments.results[0].ServerRelativeUrl + ')');
+                        $('.banner_sm_xs').css('background-image', 'url(' + attachments.results[0].ServerRelativeUrl + ')');
+                        //console.log()
+                    }
+                   
+                    //dfd.resolve(data.d.results);
+                },
+                error: function (error) {
+                    console.log(JSON.stringify(error));
+                }
+            });
+
+            return dfd.promise;
+        };
+    }]);
+
+    Profile = {
+        load:function(){
+            this.links();
+            this.social();
+            this.accordion();
+        },
+        links:function(){
+            $('a[href="#"]').click(function(e){
+                e.preventDefault();
+            });
+        },
+        social:function(){
+            $('.accordion .about-me .photo .photo-overlay .plus').click(function(){
+                $('.social-link').toggleClass('active');
+                $('.about-me').toggleClass('blur');
+            });
+            $('.social-link').click(function(){
+                $(this).toggleClass('active');
+                $('.about-me').toggleClass('blur');
+            });
+        },
+        accordion:function(){
+            var subMenus = $('.accordion .sub-nav').hide();
+            $('.accordion > a').each(function(){
+                if($(this).hasClass('active')){
+                    $(this).next().slideDown(100);
+                }
+            });
+            $('.accordion > a').click(function(){
+                $this = $(this);
+                $target =  $this.next();
+                $this.siblings('a').removeAttr('class');
+                $this.addClass('active');
+                if(!$target.hasClass('active')){
+                    subMenus.removeClass('active').slideUp(100);
+                    $target.addClass('active').slideDown(100);
+                }
+                return false;
+            });
+        }
+    };
+    angular.bootstrap(document.getElementById("siteOwnerAPPDiv"), ['siteownerBannerApp']);
+

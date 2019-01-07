@@ -1,0 +1,107 @@
+﻿<div style="margin-top: 5px;"></div>
+<div class="row">
+    <div class="banner visible-lg visible-md col-lg-9 col-md-9">
+        <div class="visible-lg visible-md col-lg-4 col-md-4 bannerInfo">
+            <h4 class="dept_Dynamic_Title"></h4>
+            <!--<div id="depAnnounc" class="carousel slide" data-ride="carousel">
+                    <div id="depAnnounc_inner" class="carousel-inner" role="listbox">
+                    </div>
+            </div>-->
+            <div uib-carousel active="startSlide.active" interval="10000" no-wrap="false" id="depAnnounc">
+                <div uib-slide ng-repeat="slide in  model.depannouncements track by $index" index="$index">
+                    <div id="depAnnounc_inner" class="carousel-inner" role="listbox">
+                      <a ng-href="{{slide.displayForm}}">{{slide.title}}</a>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="visible-sm visible-xs col-sm-12 banner_sm_xs">
+        <div class="visible-sm visible-xs col-sm-5 bannerInfo_sm_xs">
+            <h4 class="dept_Dynamic_Title"></h4>
+            <div id="depAnnounc_sm" class="carousel slide" data-ride="carousel">
+                <div id="depAnnounc_inner_sm" class="carousel-inner" role="listbox">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="visible-sm visible-x row" style="clear:both;padding:5px;">&nbsp;</div>
+    <div class="col-lg-3 col-md-3 visible-lg visible-md col-sm-6 siteOwner siteOwner-md">
+        <div class="accordion-wrap">
+            <div class="accordion">
+                <a href="#" class="active"><i class="fa fa-user change"></i> Site Owner</a>
+                <div class="sub-nav active">
+                    <div class="html about-me">
+                        <div class="photo">
+                            <div ng-show="model.url != 'notUploded'">
+                                <img ng-src={{model.url}} class="img-responsive avatar" />
+                            </div>
+                            <div ng-show="model.url == 'notUploded'">
+                                <i class="fa fa-user fa-3x responsive" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <h5 class="avtar_title">{{model.name}}</h5>
+                    </div>
+                </div>
+                <a class="secound" href="#"><i class="fa fa-envelope change"></i> Contact Info</a>
+                <div class="sub-nav">
+                    <h5 style="padding-left:5px;"><span>Job Title :</span> {{model.title}} </h5>
+                    <h5 style="padding-left:5px;"><span>Phone :</span> {{model.phoneNumber}} </h5>
+                    <h5 style="padding-left:5px;"><span>Email :</span> <a href="mailto:{{model.email}}">{{model.email}}</a></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="visible-sm col-sm-6 siteOwner_sm">
+        <div class="accordion-wrap">
+            <div class="accordion">
+                <a href="#" class="active"><i class="fa fa-user change"></i> Site Owner</a>
+                <div class="sub-nav active">
+                    <div class="html about-me">
+                        <div class="photo">
+                            <div ng-show="model.url != 'notUploded'">
+                                <img ng-src={{model.url}} class="img-responsive avatar" />
+                            </div>
+                            <div ng-show="model.url == 'notUploded'">
+                                <i class="fa fa-user fa-3x responsive" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <h5 class="avtar_title">{{model.name}}</h5>
+                    </div>
+                </div>
+                <a class="secound" href="#"><i class="fa fa-envelope change"></i> Contact Info</a>
+                <div class="sub-nav">
+                    <h5 style="padding-left:5px;"><span>Job Title :</span> {{model.title}} </h5>
+                    <h5 style="padding-left:5px;"><span>Phone :</span> {{model.phoneNumber}} </h5>
+                    <h5 style="padding-left:5px;"><span>Email :</span> <a href="mailto:{{model.email}}">{{model.email}}</a> </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="visible-xs col-sm-6 siteOwner_xs">
+        <div class="accordion-wrap">
+            <div class="accordion">
+                <a href="#" class="active"><i class="fa fa-user change"></i> Site Owner</a>
+                <div class="sub-nav active">
+                    <div class="html about-me">
+                        <div class="photo">
+                            <div ng-show="model.url != 'notUploded'">
+                                <img ng-src={{model.url}} class="img-responsive avatar" />
+                            </div>
+                            <div ng-show="model.url == 'notUploded'">
+                                <i class="fa fa-user fa-3x responsive" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <h5 class="avtar_title">{{model.name}}</h5>
+                    </div>
+                </div>
+                <a class="secound" href="#"><i class="fa fa-envelope change"></i> Contact Info</a>
+                <div class="sub-nav">
+                    <h5 style="padding-left:5px;"><span>Job Title :</span> {{model.title}} </h5>
+                    <h5 style="padding-left:5px;"><span>Phone :</span> {{model.phoneNumber}} </h5>
+                    <h5 style="padding-left:5px;"><span>Email :</span> <a href="mailto:{{model.email}}">{{model.email}}</a> </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

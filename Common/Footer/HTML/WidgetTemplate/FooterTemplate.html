@@ -1,0 +1,48 @@
+﻿<div class="row ft-hz-line">
+    <div class="col-lg-11 col-md-12">
+        <div class="ft-logo-div">
+            <img class="ft-logo" Src="/sites/common/SiteAssets/CustomShell/Img/incyte-logo.png" alt="Incyte Logo" />
+        </div>
+        <div class="ft-links-div">
+            <div class="row visible-lg" ng-repeat="footer in model.FooterListItem" ng-if="(($index % 6) == 0)" ng-init="start = $index">
+                <div class="col-lg-12 col-md-12">
+                    <ul>
+                        <li ng-repeat="footer in model.FooterListItem | limitTo : 6: start" style="display:inline-block;">
+                            <a ng-href="{{footer.url}}"><span class="footeranchorlinks">{{footer.Title}}</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row visible-md" ng-repeat="footer in model.FooterListItem" ng-if="(($index % 4) == 0)" ng-init="start = $index">
+                <div class="col-lg-12 col-md-12">
+                    <ul>
+                        <li ng-repeat="footer in model.FooterListItem | limitTo : 4: start" style="display:inline-block;">
+                            <a ng-href="{{footer.url}}"><span class="footeranchorlinks">{{footer.Title}}</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row visible-sm visible-xs" ng-repeat="footer in model.FooterListItem" ng-if="(($index % 1) == 0)" ng-init="start = $index">
+                <div>
+                    <ul style="padding-left:0px;">
+                        <li ng-repeat="footer in model.FooterListItem | limitTo : 1: start" style="display:inline-block;">
+                            <a ng-href="{{footer.url}}"><span class="footeranchorlinks">{{footer.Title}}</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+                <p class="ft-para">
+                    Incyte Corporation copyright © 2016
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-1 visible-lg" style="text-align:center;">
+        <div class="ft-logo-div"></div>
+        <div class="ft-links-div"></div>
+        <a id="IsSiteAdminFooter" href="/sites/Common/Lists/FooterList/AllItems.aspx" style="display:none;">
+            <span class="TopMenuTitle"> <i class="fa fa-list fa-1x" aria-hidden="true"></i></span>
+        </a>
+    </div>
+</div>

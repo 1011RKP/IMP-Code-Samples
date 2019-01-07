@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>OverLay</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+        }
+        .overlay {
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0, 0.9);
+            overflow: hidden;
+            transition: 0.5s;
+        }
+        .subNavoverlay {
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgb(248, 248, 248)!important;
+
+            transition: 0.5s;
+             box-shadow:0 6px 20px 0 rgba(0,0,0,.19),0 8px 17px 0 rgba(0,0,0,.2)!important;
+        }
+        .overlay-content {
+            position: relative;
+            top: 25%;
+            text-align: center;
+            margin-top: 30px;
+            overflow: hidden;
+        }
+         .subNaOverlay-content {
+            position: relative;
+            top: 25%;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom:0px;
+            /*margin-bottom:30px;
+            margin-bottom: -1000px;
+            padding-bottom: 1000px;*/
+        }
+        .overlay a {
+            padding: 2px;
+            text-decoration: none;
+            font-size: 16px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+            text-align: left;
+            border-bottom: 1px solid gray;
+            padding-left: 20px;
+        }
+
+            .overlay a:hover, .overlay a:focus {
+                color: balck;
+            }
+
+        .overlay .closebtn {
+            position: absolute;
+            top: 0;
+            right: 5px;
+            font-size: 30px;
+            border: none;
+        }
+        .subNavoverlay .subNavClosebtn{
+            position: absolute;
+            top: 0;
+            right: 5px;
+            font-size: 30px;
+            border: none;
+        }
+        .overlay_head {
+            height: 15px;
+        }
+
+        .subNaOverlay_head {
+            height: 15px;
+        }
+        #myNav {
+            position: absolute;
+            top: 12%;
+            left: 0;
+            overflow: hidden !important;
+            background-color: white;
+            border-radius: 5px;
+            margin-left: -15px;
+        }
+        #mySubNav{
+            position: absolute;
+            top: 12%;
+            left: 0;
+
+            background-color: white;
+            border-radius: 5px;
+            margin-left: -15px;
+
+        }
+
+
+        #SiteOwnerDiv {
+            padding-top: 12px;
+        }
+
+        #mainbody {
+            width: 98%;
+            height: auto;
+            /*overflow: hidden;*/
+        }
+
+        #colspanEle {
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            left: 0;
+            overflow: hidden !important;
+            background: white;
+        }
+        #subNavColspanEle{
+             position: absolute;
+            top: 0;
+            z-index: 1;
+            left: 0;
+            overflow: hidden !important;
+            background: white;
+        }
+        #subleftMenu{
+            display:none;
+        }
+        .bluebtn{
+		background-color:#0065A1;	
+		color:white!important;
+		}
+       .bluebtn:hover{
+		background-color:#0e7aba;	
+		color:white!important;
+		}
+
+        @media screen and (max-height: 450px) {
+            .overlay a {
+                font-size: 20px;
+            }
+
+            .overlay .closebtn {
+                font-size: 40px;
+                top: 15px;
+                right: 35px;
+            }
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function openNav() {
+			document.getElementById("subNavColspanEle").style.visibility = "hidden";
+            document.getElementById("myNav").style.width = "30%";
+            document.getElementById("colspanEle").style.visibility = "hidden";
+        }
+        function closeNav() {
+			document.getElementById("subNavColspanEle").style.visibility = "visible";
+            document.getElementById("myNav").style.width = "0%";
+            document.getElementById("colspanEle").style.visibility = "visible";
+        }
+        function subNavCloseNav() {
+			document.getElementById("colspanEle").style.visibility = "visible";
+            document.getElementById("mySubNav").style.width = "0%";
+            document.getElementById("subNavColspanEle").style.visibility = "visible";
+            $('#subleftMenu').attr('style','display:none');
+            //document.getElementById("").style.visibility = "hidden";
+        }
+        function subNavOpenNav() {
+			document.getElementById("colspanEle").style.visibility = "hidden";
+            document.getElementById("mySubNav").style.width = "80%";
+            document.getElementById("subNavColspanEle").style.visibility = "hidden";
+            $('#subleftMenu').attr('style','display:block');
+
+        }
+        $(document).ready(function () {
+		//$('.SiteTextSecondMenu')[0].innerText = ($('#getSiteTitle').find("a")[0].innerText).trim("");
+		$('.SiteTextSecondMenu')[0].innerText = "Global Technical Operations";
+        $("#subNaOverlaycontent").load("/Sites/Common/SiteAssets/MegaMenu/HTML/Widget/megeMenusubmenu.html");
+            quickLunch();
+            //document.getElementById("subleftMenu").style.visibility = "hidden";
+        });
+        function quickLunch() {
+            $.ajax({
+                url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/navigation/QuickLaunch?$filter=IsExternal eq false",
+                method: "GET",
+                headers: { "Accept": "application/json; odata=verbose" },
+                success: function (data) {
+                    $.each(data.d.results, function (key, val) {
+						if(val.Title == "Page not found"){
+						}
+						else{
+                        $('.overlay-content').append("<a href='" + val.Url + "'>" + val.Title + "</a>")
+						}
+                    });
+                    console.log(data);
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+        function sideMenu() {
+            $.ajax({
+                url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/navigation/QuickLaunch?$filter=IsExternal eq false",
+                method: "GET",
+                headers: { "Accept": "application/json; odata=verbose" },
+                success: function (data) {
+                    $.each(data.d.results, function (key, val) {
+                        if (val.Title == "Page not found") {
+                        }
+                        else {
+                            $('.overlay-content').append("<a href='" + val.Url + "'>" + val.Title + "</a>")
+                        }
+                    });
+                    console.log(data);
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+        function orgAnn() {
+            var today = new Date();
+            var filter = "$filter=Expires ge datetime'" + today.toISOString() + "'"
+            $.ajax({
+                url: _spPageContextInfo.siteAbsoluteUrl + "/_api/lists/GetByTitle('Organizational Announcements')/items?" + filter,
+                method: "GET",
+                headers: { "Accept": "application/json; odata=verbose" },
+                success: function (data) {
+                    console.log(data);
+                    $.each(data.d.results, function (key, val) {
+                        var url = "https://departments.incyte.com/sites/globalfinance/Lists/Organizational%20Announcements/DispForm.aspx?ID=" + val.ID;
+                        $('#marquee').append("<marquee direction=\"left\"><span style=\"text-decoration:underline;color:red;\">Organizational Announcements:-  </span><a href=" + url + ">" +    val.Title + "</a></marquee>");
+                    });
+
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+        function leftToggle() {
+            if (document.querySelector("#subNav1").style.display == 'none') {
+                document.querySelector("#subNav1").style.display = "block";
+                document.querySelector("#subNav2").style.display = "block";
+            } else {
+                document.querySelector("#subNav1").style.display = "none";
+                document.querySelector("#subNav2").style.display = "none";
+            }
+
+        }
+        function HomeClick()
+        {
+        	window.location.href = _spPageContextInfo.siteAbsoluteUrl;        
+        }
+    </script>
+</head>
+
+<body>
+    <div id="mySubNav" class="subNavoverlay">
+        <div class="subNaOverlay_head">
+            <a href="javascript:void(0)" class="subNavClosebtn" onclick="subNavCloseNav()">&times;</a>
+        </div>
+        <div class="subNaOverlay-content">
+            <div id="subNaOverlaycontent" class="row">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <!--<span id="subNavColspanEle" style="font-size:18px;cursor:pointer">
+                <img src="/sites/common/SiteAssets/overlay_sub/1.jpg" onclick="subNavOpenNav()" style="margin-left: 14px;height: 32px;" />
+            </span>-->
+            <div id="subNavColspanEle" style="visibility: visible;">
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" style="padding-left:0px;padding-right:0px;min-width: 4em;" onclick="leftToggle()" class="btn btn-primary bluebtn"><span class="glyphicon glyphicon-align-left" aria-hidden="true"></span></button>
+                    <button type="button" id="subNav1" style="display:block" onclick="subNavOpenNav()" class="btn btn-primary bluebtn">
+                      <span class="SiteTextSecondMenu"></span>
+                      <span class="caret"></span></button>
+                    <button type="button" id="subNav2" style="display:block" onclick="HomeClick();"   class="btn btn-primary bluebtn" ><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</button>
+                </div>
+                <!-- <i class="fa fa-chevron-circle-right" aria-hidden="true" onclick="subNavOpenNav()" style="margin-left: 15px;font-size:24px;"></i>-->
+            </div>
+        </div>
+        <div class="col-lg-10">
+            <div id="marquee"></div>
+        </div>
+
+    </div>
+
+
+    <div id="myNav" class="overlay">
+        <div class="overlay_head">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        </div>
+        <div class="overlay-content">
+        </div>
+    </div>
+    <div class="row" style="margin-top:40px">
+        <div class="col-lg-2">
+            <span id="colspanEle" style="font-size:18px;cursor:pointer" onclick="openNav()">
+                <img src="/sites/common/SiteAssets/overlay_sub/OverLay.png" style="margin-left: 15px;height: 35px;" />
+            </span>
+        </div>
+        <div class="col-lg-10">
+            <div id="marquee"></div>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>

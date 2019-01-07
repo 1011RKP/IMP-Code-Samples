@@ -1,0 +1,29 @@
+﻿<div style="margin-top: 15px;"></div>
+<div class="row-fluid">
+    <div class="banner visible-lg visible-md col-lg-12 col-md-12">
+        <div class="visible-lg visible-md col-lg-4 col-md-4 bannerInfo">
+            <h4 class="dept_Dynamic_Title"></h4>
+            <!--<div id="depAnnounc" class="carousel slide" data-ride="carousel">
+                    <div id="depAnnounc_inner" class="carousel-inner" role="listbox">
+                    </div>
+            </div>-->
+            <div uib-carousel active="startSlide.active" interval="10000" no-wrap="false" id="depAnnounc">
+                <div uib-slide ng-repeat="slide in  model.depannouncements track by $index" index="$index">
+                    <div id="depAnnounc_inner" class="carousel-inner" role="listbox">
+                      <a ng-href="{{slide.displayForm}}">{{slide.title}}</a>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="visible-sm visible-xs col-sm-12 banner_sm_xs">
+        <div class="visible-sm visible-xs col-sm-5 bannerInfo_sm_xs">
+            <h4 class="dept_Dynamic_Title"></h4>
+            <div id="depAnnounc_sm" class="carousel slide" data-ride="carousel">
+                <div id="depAnnounc_inner_sm" class="carousel-inner" role="listbox">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="visible-sm visible-x row" style="clear:both;padding:5px;">&nbsp;</div>
+</div>

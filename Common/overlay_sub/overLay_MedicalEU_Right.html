@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>OverLay</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .overlay {
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0, 0.9);
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+        .subNavoverlay {
+            width: 80%;
+            display: none;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: rgb(248, 248, 248) !important;
+            transition: 0.5s;
+            box-shadow: 0 6px 20px 0 rgba(0,0,0,.19),0 8px 17px 0 rgba(0,0,0,.2) !important;
+        }
+
+        .overlay-content {
+            position: relative;
+            top: 25%;
+            text-align: center;
+            margin-top: 30px;
+            overflow: hidden;
+        }
+
+        .subNaOverlay-content {
+            position: relative;
+            top: 25%;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 0px;
+        }
+
+        .overlay a {
+            padding: 2px;
+            text-decoration: none;
+            font-size: 16px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+            text-align: left;
+            border-bottom: 1px solid gray;
+            padding-left: 20px;
+        }
+
+            .overlay a:hover, .overlay a:focus {
+                color: balck;
+            }
+
+        .overlay .closebtn {
+            position: absolute;
+            top: 0;
+            right: 5px;
+            font-size: 30px;
+            border: none;
+        }
+
+        .subNavoverlay .subNavClosebtn {
+            position: absolute;
+            top: 0;
+            right: 5px;
+            font-size: 30px;
+            border: none;
+        }
+
+        .overlay_head {
+            height: 15px;
+        }
+
+        .subNaOverlay_head {
+            height: 15px;
+        }
+
+        #myNav {
+            position: absolute;
+            top: 9%;
+            left: 0;
+            overflow: hidden !important;
+            background-color: white;
+            border-radius: 5px;
+            margin-left: -15px;
+        }
+
+        #mySubNav {
+            position: absolute;
+            top: 9%;
+            background-color: white;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+
+        #SiteOwnerDiv {
+            padding-top: 12px;
+        }
+
+        #mainbody {
+            width: 98%;
+            height: auto;
+        }
+
+        #colspanEle {
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            left: 0;
+            overflow: hidden !important;
+            background: white;
+        }
+
+        #subNavColspanEle {
+            top: 0;
+            z-index: 1;
+            left: 0;
+            overflow: hidden !important;
+            background: white;
+            margin-right: 15px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .overlay a {
+                font-size: 20px;
+            }
+
+            .overlay .closebtn {
+                font-size: 40px;
+                top: 15px;
+                right: 35px;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+    <script type="text/javascript">
+        function openNav() {
+            document.getElementById("myNav").style.width = "30%";
+            document.getElementById("colspanEle").style.visibility = "hidden";
+        }
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+            document.getElementById("colspanEle").style.visibility = "visible";
+        }
+        $(document).ready(function () {
+            quickLunch();
+        });
+        function quickLunch() {
+            $.ajax({
+                url: _spPageContextInfo.siteAbsoluteUrl + "/_api/web/navigation/QuickLaunch?$filter=IsExternal eq false",
+                method: "GET",
+                headers: { "Accept": "application/json; odata=verbose" },
+                success: function (data) {
+                    $.each(data.d.results, function (key, val) {
+                        if (val.Title == "Page not found") {
+                        }
+                        else {
+                            $('.overlay-content').append("<a href='" + val.Url + "'>" + val.Title + "</a>")
+                        }
+                    });
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+        function sideMenu() {
+            $.ajax({
+                url: _spPageContextInfo.siteAbsoluteUrl + "/_api/web/navigation/QuickLaunch?$filter=IsExternal eq false",
+                method: "GET",
+                headers: { "Accept": "application/json; odata=verbose" },
+                success: function (data) {
+                    $.each(data.d.results, function (key, val) {
+                        if (val.Title == "Page not found") {
+                        }
+                        else {
+                            $('.overlay-content').append("<a href='" + val.Url + "'>" + val.Title + "</a>")
+                        }
+                    });
+                    console.log(data);
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+        function orgAnn() {
+            var today = new Date();
+            var filter = "$filter=Expires ge datetime'" + today.toISOString() + "'"
+            $.ajax({
+                url: _spPageContextInfo.siteAbsoluteUrl + "/_api/lists/GetByTitle('Organizational Announcements')/items?" + filter,
+                method: "GET",
+                headers: { "Accept": "application/json; odata=verbose" },
+                success: function (data) {
+                    console.log(data);
+                    $.each(data.d.results, function (key, val) {
+                        var url = "https://departments.incyte.com/sites/globalfinance/Lists/Organizational%20Announcements/DispForm.aspx?ID=" + val.ID;
+                        $('#marquee').append("<marquee direction=\"left\"><span style=\"text-decoration:underline;color:red;\">Organizational Announcements:-  </span><a href=" + url + ">" + val.Title + "</a></marquee>");
+                    });
+
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+        function leftToggle() {
+            if (document.querySelector("#medEUHome").style.display == 'none') {
+                document.querySelector("#medEUHome").style.display = "block";
+                document.querySelector("#EUMalt").style.display = "block";
+                document.querySelector("#ISTs").style.display = "block";
+                document.querySelector("#MedInfo").style.display = "block";
+                document.querySelector("#ScieCom").style.display = "block";
+                document.querySelector("#usMedAff").style.display = "block";
+                document.querySelector("#glbMedAff").style.display = "block";
+
+            } else {
+                document.querySelector("#medEUHome").style.display = "none";
+                document.querySelector("#EUMalt").style.display = "none";
+                document.querySelector("#ISTs").style.display = "none";
+                document.querySelector("#MedInfo").style.display = "none";
+                document.querySelector("#ScieCom").style.display = "none";
+                document.querySelector("#usMedAff").style.display = "none";
+                document.querySelector("#glbMedAff").style.display = "none";
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-lg-11">
+            <div id="subNavColspanEle" style="float:left">
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" id="medEUHome" style="display:block" onclick="location.href = 'https://incyte.sharepoint.com/sites/medaffairs_eu/';" class="btn btn-warning"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</button>
+                    <button type="button" id="EUMalt" style="display:block" onclick="location.href = 'https://incyte.sharepoint.com/sites/medaffairs_eu/Pages/EU-MALT.aspx';" class="btn btn-warning">EU-MALT</button>
+                    <button type="button" id="ISTs" style="display:block" onclick="location.href = 'https://incyte.sharepoint.com/sites/medaffairs_eu/Pages/IIR.aspx';" class="btn btn-warning">IIR</button>
+                    <button type="button" id="MedInfo" style="display:block" onclick="location.href = 'https://incyte.sharepoint.com/sites/medaffairs_eu/Pages/Medical%20Information.aspx';" class="btn btn-warning">Medical Information</button>
+                    <button type="button" id="ScieCom" style="display:block" onclick="location.href = 'https://incyte.sharepoint.com/sites/medaffairs_eu/Pages/Scientific%20Communication.aspx';" class="btn btn-warning">Scientific Communication</button>
+                    <button type="button" id="usMedAff" style="display:block" onclick="location.href = 'https://departments.incyte.com/medaffairs/Pages/LandingPage.aspx';" class="btn btn-warning">US Medical Affairs </button>
+                    <button type="button" id="glbMedAff" style="display:block" onclick="location.href = 'https://departments.incyte.com/sites/GMA/Pages/Home.aspx';" class="btn btn-warning">Global Medical Affairs </button>
+                    <button type="button" style="padding-left:0px;padding-right:0px;min-width: 4em;" onclick="leftToggle()" class="btn btn-warning"><span class="glyphicon glyphicon-align-left" aria-hidden="true"></span></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-1">
+            &nbsp;
+        </div>
+    </div>
+    <div id="myNav" class="overlay">
+        <div class="overlay_head">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        </div>
+        <div class="overlay-content">
+        </div>
+    </div>
+    <div class="row" style="margin-top:10px">
+        <div class="col-lg-2">
+            <span id="colspanEle" style="font-size:18px;cursor:pointer" onclick="openNav()">
+                <img src="/sites/common/SiteAssets/overlay_sub/OverLay.png" style="margin-left: 15px;height: 35px;" />
+            </span>
+        </div>
+        <div class="col-lg-10">
+            <div id="marquee"></div>
+        </div>
+
+    </div>
+</body>
+
+</html>

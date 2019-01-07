@@ -1,0 +1,82 @@
+﻿
+
+<div class="container-fluid">
+    <div class="col-lg-12 col-md-12 visible-lg visible-md col-sm-6 siteOwner siteOwner-md">
+        <div class="accordion-wrap" style="margin: auto;display: flex;">
+            <div class="accordion">
+                <a href="#" class="active"><i class="fa fa-user change"></i> Site Owner</a>
+                <div class="sub-nav active">
+                    <div class="html about-me">
+                        <div class="photo">
+                            <div ng-show="model.url != 'notUploded'">
+                                <img ng-src={{model.url}} class="img-responsive avatar" />
+                            </div>
+                            <div ng-show="model.url == 'notUploded'">
+                                <i class="fa fa-user fa-3x responsive" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <h5 class="avtar_title">{{model.name}}</h5>
+                    </div>
+                </div>
+                <a class="secound" href="#"><i class="fa fa-envelope change"></i> Contact Info</a>
+                <div class="sub-nav">
+                    <h5 style="padding-left:5px;"><span>Job Title :</span> {{model.title}} </h5>
+                    <h5 style="padding-left:5px;"><span>Phone :</span> {{model.phoneNumber}} </h5>
+                    <h5 style="padding-left:5px;"><span>Email :</span> <a href="mailto:{{model.email}}">{{model.email}}</a></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="visible-sm col-sm-6 siteOwner_sm">
+        <div class="accordion-wrap">
+            <div class="accordion">
+                <a href="#" class="active"><i class="fa fa-user change"></i> Site Owner</a>
+                <div class="sub-nav active">
+                    <div class="html about-me">
+                        <div class="photo">
+                            <div ng-show="model.url != 'notUploded'">
+                                <img ng-src={{model.url}} class="img-responsive avatar" />
+                            </div>
+                            <div ng-show="model.url == 'notUploded'">
+                                <i class="fa fa-user fa-3x responsive" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <h5 class="avtar_title">{{model.name}}</h5>
+                    </div>
+                </div>
+                <a class="secound" href="#"><i class="fa fa-envelope change"></i> Contact Info</a>
+                <div class="sub-nav">
+                    <h5 style="padding-left:5px;"><span>Job Title :</span> {{model.title}} </h5>
+                    <h5 style="padding-left:5px;"><span>Phone :</span> {{model.phoneNumber}} </h5>
+                    <h5 style="padding-left:5px;"><span>Email :</span> <a href="mailto:{{model.email}}">{{model.email}}</a> </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="visible-xs col-sm-6 siteOwner_xs">
+        <div class="accordion-wrap">
+            <div class="accordion">
+                <a href="#" class="active"><i class="fa fa-user change"></i> Site Owner</a>
+                <div class="sub-nav active">
+                    <div class="html about-me">
+                        <div class="photo">
+                            <div ng-show="model.url != 'notUploded'">
+                                <img ng-src={{model.url}} class="img-responsive avatar" />
+                            </div>
+                            <div ng-show="model.url == 'notUploded'">
+                                <i class="fa fa-user fa-3x responsive" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <h5 class="avtar_title">{{model.name}}</h5>
+                    </div>
+                </div>
+                <a class="secound" href="#"><i class="fa fa-envelope change"></i> Contact Info</a>
+                <div class="sub-nav">
+                    <h5 style="padding-left:5px;"><span>Job Title :</span> {{model.title}} </h5>
+                    <h5 style="padding-left:5px;"><span>Phone :</span> {{model.phoneNumber}} </h5>
+                    <h5 style="padding-left:5px;"><span>Email :</span> <a href="mailto:{{model.email}}">{{model.email}}</a> </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

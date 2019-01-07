@@ -1,0 +1,83 @@
+﻿.carousel-indicators {
+    margin-bottom:-35px!important;
+}
+.carousel-indicators .active{
+      background-color:#f5af02 !important;
+}
+.carousel-indicators li {
+     background-color:#f1d58f !important;
+}
+.carousel-control.left{
+	background-image:none;display:none;
+}
+.carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev{
+	display:none;
+}
+.carousel-control.right{
+	background-image:none;display:none;
+
+}
+.carousel-control .glyphicon-chevron-right, .carousel-control .icon-next{
+		display:none;
+}
+.whatsHappreadMoreLink{
+    color: #0065A1!important;
+    font-size: 13px;
+    float: left!important;
+    font-family: "Segoe UI Semilight","Segoe UI Semilight","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+}
+
+.whatsHapplg{
+	height:40px;
+	font-weight:bold;
+	font-size:15px!important;
+    color: #0065A1!important;
+    font-size: 13px;
+    float: left!important;
+	text-align:justify;
+    font-family: "Segoe UI Semilight","Segoe UI Semilight","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+}
+.whatsHappmd{
+    color: #0065A1!important;
+    font-size: 13px;
+	text-align:justify; height: 50px;
+    float: left!important;
+    font-family: "Segoe UI Semilight","Segoe UI Semilight","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+}
+.whatsHappsm{
+    color: #0065A1!important;
+    font-size: 13px;
+    float: left!important;
+    font-family: "Segoe UI Semilight","Segoe UI Semilight","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+    height: 75px;
+	text-align:justify;
+	display: inline-block;
+
+}
+
+.whatsHappxs{
+    color: #0065A1!important;
+    font-size: 13px;
+    float: left!important;
+    font-family: "Segoe UI Semilight","Segoe UI Semilight","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+	height:70px;
+	text-align:justify;
+	display: inline-block;
+}
+
+.whatsHappBodylg{
+	height:230px;
+	text-align:justify
+}
+.whatsHappBodymd{
+	height:130px;
+	text-align:justify
+}
+.whatsHappBodysm{
+	height:190px;
+	text-align:justify
+}
+.whatsHappBodyxs{
+	height:170px;
+	text-align:justify
+}

@@ -1,0 +1,26 @@
+﻿<div class="row-fluid">
+    <div class="widget-green">
+        <div class="widget-title">
+            <h4> -------------- Charter -------------- </h4>
+        </div>
+        <div class="widget-body">
+            <div class="dynamicData">
+                <div class="container charterData">
+                    <ul style="list-style: none;">
+                        <li dir-paginate="item in model.data | itemsPerPage: 7">
+                            <h4><i class="fa fa-file" style="color:#0065A1" aria-hidden="true"></i><a href="{{item.FileRef}}">  {{item.File.Name | extension}}</a></h4>
+                        </li>
+                    </ul>
+                    <dir-pagination-controls></dir-pagination-controls>
+                </div>
+                <div class="container charterFooter">
+                    <h4><a href="/sites/es/Charters/Forms/AllItems.aspx"> -------------- Charter Library  --------------  </a></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+

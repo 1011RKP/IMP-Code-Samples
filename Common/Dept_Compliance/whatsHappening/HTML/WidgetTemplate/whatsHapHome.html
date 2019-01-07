@@ -1,0 +1,54 @@
+﻿<div class="container">
+    <div style="border-bottom:2px solid #0065A1"></div>
+    <h2 style="font-weight:bold!important"><a href="/sites/compliance/Lists/Whats%20Happening/AllItems.aspx" target="_blank">What’s Happening!</a></h2>   
+    <div class="container-fluid">
+        <div uib-carousel active="model.active" interval="10000" no-wrap="false">
+            <div uib-slide ng-repeat="slide in  model.whatshap" index="$index">
+                <div style="height:220px!important">
+                    <div style="clear:both;"><br></div>
+                    <div style="clear:both;height:2px!important;"><br></div>
+                    <div><!-- style="height:45px!important;vertical-align: middle;display: table-cell;"-->
+                        <a class="visible-lg whatsHapplg" ng-href="{{slide.readMore}}">
+                            {{slide.title| limitTo :145}}{{slide.title.length > 100 ? ' ...' : ''}}
+                        </a>
+                        <a class="visible-md whatsHappmd" ng-href="{{slide.readMore}}">
+                            {{slide.title| limitTo :145}}{{slide.title.length > 100 ? ' ...' : ''}}
+                        </a>
+                        <a class="visible-sm whatsHappsm" ng-href="{{slide.readMore}}">
+                            {{slide.title| limitTo :145}}{{slide.title.length > 100 ? ' ...' : ''}}
+                        </a>
+                        <a class="visible-xs whatsHappxs" ng-href="{{slide.readMore}}">
+                            {{slide.title| limitTo :145}}{{slide.title.length > 100 ? ' ...' : ''}}
+                        </a>
+                    </div>
+                    <div style="clear:both;height:10px!important;"><br></div>
+                    <div class="content-heading">
+                        <div class="visible-lg whatsHappBodylg">
+                            <p><span style="text-align: justify;" ng-bind-html="slide.body | cut:true:450:' ...'"></span></p>
+                        </div>
+                        <div class="visible-md whatsHappBodymd">
+                            <p style="text-align: justify;" ng-bind-html="slide.body | cut:true:400:' ...'"></p>
+                        </div>
+                        <div class="visible-sm whatsHappBodysm">
+                            <p style="text-align: justify;" ng-bind-html="slide.body | cut:true:400:' ...'"></p>
+                        </div>
+                        <div class="visible-xs whatsHappBodyxs">
+                            <p style="text-align: justify;" ng-bind-html="slide.body | cut:true:400:' ...'"></p>
+                        </div>
+                    </div>
+                    <div>
+                        <a class="whatsHappreadMoreLink" ng-href="{{slide.readMore}}">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="border-bottom:2px solid #0065A1;margin-top: 20px;"></div>
+</div>
+
+
+
+
+
+
+

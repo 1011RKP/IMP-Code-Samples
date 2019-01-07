@@ -1,0 +1,26 @@
+﻿.dl_Title{
+	font-size: 18px;
+    color: #0065A1;
+    font-weight: bold;
+	padding-bottom: 10px;
+	padding-top: 8px;
+    border-bottom: 1px solid #d8d3d3;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;
+}
+.container.dl_body ul {
+    list-style: none;
+}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{	
+color:white!important;
+}
+.dl_body li i {
+    color: #0065A1;
+}
+.deptLinks{
+	display: table;
+    margin-right: auto;
+    margin-left: auto;
+}
+dir-pagination-controls {
+    float: right;
+}

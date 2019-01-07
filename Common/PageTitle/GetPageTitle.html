@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style type="text/css">
+    .sitetitleanchor
+    {
+		font-size: 20px !important;
+		color: #0065A1!important;
+	}
+	.pagetitlespan
+	{
+		font-size: 14px !important;
+		color: #0065A1!important;
+	}
+    #TopBreadCrumb
+    {
+		float: left;
+    margin-left: 10px;
+    
+    font-size: 20px;
+    color: rgb(42, 172, 227);
+	}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        
+        $(document).ready(function () {
+            BreadCrumbNavigation();
+        });
+       
+            function BreadCrumbNavigation() {
+        debugger;
+            $.ajax({
+                url: _spPageContextInfo.webAbsoluteUrl+ "/_api/web",
+                method: "GET",
+                headers: { "Accept": "application/json; odata=verbose" },
+                success: function (parentdata) {
+                if(window.location.href.toLowerCase().indexOf("home") > 0)
+            					{
+            						 $('#TopBreadCrumb').append("<a class='sitetitleanchor' href='" + parentdata.d.Url + "'>" + parentdata.d.Title + "</a>");
+            					}
+            					else if(window.location.href.toLowerCase().indexOf("pages") > 0)
+            					{
+            					$('#TopBreadCrumb').
+                    	append("<a class='sitetitleanchor' href='" + parentdata.d.Url + "'>" + parentdata.d.Title + "</a> "+  
+                    	"<span class='pagetitlespan'> >  "+$('.ms-core-pageTitle').find('span#DeltaPlaceHolderPageTitleInTitleArea')[0].innerText.trim() +"</span>")
+
+            					}
+            					 else
+                    			{
+                    				$('#TopBreadCrumb').append("<a class='sitetitleanchor' href='" + parentdata.d.Url + "'>" + parentdata.d.Title + "</a>");
+                    			}
+
+                	 /*var currentPage = _spPageContextInfo.serverRequestPath
+                	 var isdefault=false;
+   					 $.ajax({
+        					url: _spPageContextInfo.webAbsoluteUrl + "/_api/Web/RootFolder/WelcomePage",
+        					type: "GET",
+        					headers: {
+            					"accept": "application/json;odata=verbose",
+        					},
+       					  success: function(data) {
+            				if (currentPage.indexOf(data.d.WelcomePage) > -1) {
+                				isdefault = true;	
+            					} 
+            					if(isdefault)
+            					{
+            						 $('#TopBreadCrumb').append("<a class='sitetitleanchor' href='" + parentdata.d.Url + "'>" + parentdata.d.Title + "</a>");
+            					}
+            					else if(window.location.href.toLowerCase().indexOf("pages") > 0)
+            					{
+            					$('#TopBreadCrumb').
+                    	append("<a class='sitetitleanchor' href='" + parentdata.d.Url + "'>" + parentdata.d.Title + "</a> "+  
+                    	"<span class='pagetitlespan'> >  "+$('.ms-core-pageTitle').find('span#DeltaPlaceHolderPageTitleInTitleArea')[0].innerText.trim() +"</span>")
+
+            					}
+            					 else
+                    			{
+                    				$('#TopBreadCrumb').append("<a class='sitetitleanchor' href='" + parentdata.d.Url + "'>" + parentdata.d.Title + "</a>");
+                    			}
+        					},
+        					error: function(error) {
+            					console.log(data);
+        						}
+    					});*/
+                    
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+        
+        
+        
+    </script>
+</head>
+
+<body>
+   <div id="TopBreadCrumb">
+   </div>
+</body>
+
+</html>
