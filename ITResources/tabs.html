@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+       #taborgChart, #tabsiteMap {
+            display: none;
+        }
+         #MSOZoneCell_WebPartWPQ2{
+            display: none;
+        }
+        .resourceLinks{
+            cursor:pointer
+        }
+        .about-header {
+		    background: url(/sites/IT/SiteAssets/images/Header_About.png) no-repeat;
+		    background-size: cover;
+		    height: 100%;
+		    padding: 20px 40px;
+		    color: #fff;
+		}
+    </style>
+    <script type="text/javascript">
+        function qucikLinksfn() {
+            $('#tabQuickLinksLeft').css("display", "block");
+            $('#tabQuickLinksRight').css("display", "block");
+            $('#MSOZoneCell_WebPartWPQ2').css("display", "none");
+            $('#taborgChart').css("display", "none");
+            $('#tabsiteMap').css("display", "none");
+
+            $('#linkQl').addClass('active');
+            $('#linkOOC').removeClass('active');
+            $('#linkITR').removeClass('active');
+            $('#linkSM').removeClass('active');
+        }
+        function outofOfficefn() {
+            $('#tabQuickLinksLeft').css("display", "none");
+            $('#tabQuickLinksRight').css("display", "none");
+            $('#MSOZoneCell_WebPartWPQ2').css("display", "block");
+            $('#taborgChart').css("display", "none");
+            $('#tabsiteMap').css("display", "none");
+
+            $('#linkQl').removeClass('active');
+            $('#linkOOC').addClass('active');
+            $('#linkITR').removeClass('active');
+            $('#linkSM').removeClass('active');
+        }
+        function orgchartfn() {
+            $('#tabQuickLinksLeft').css("display", "none");
+            $('#tabQuickLinksRight').css("display", "none");
+            $('#MSOZoneCell_WebPartWPQ2').css("display", "none");
+            $('#taborgChart').css("display", "block");
+            $('#tabsiteMap').css("display", "none");
+
+            $('#linkQl').removeClass('active');
+            $('#linkOOC').removeClass('active');
+            $('#linkITR').addClass('active');
+            $('#linkSM').removeClass('active');
+        }
+        function siteMapfn() {
+            $('#tabQuickLinksLeft').css("display", "none");
+            $('#tabQuickLinksRight').css("display", "none");
+            $('#MSOZoneCell_WebPartWPQ2').css("display", "none");
+            $('#taborgChart').css("display", "none");
+            $('#tabsiteMap').css("display", "block");
+
+            $('#linkQl').removeClass('active');
+            $('#linkOOC').removeClass('active');
+            $('#linkITR').removeClass('active');
+            $('#linkSM').addClass('active');
+        }
+    </script>
+</head>
+<body>
+
+    <div class="row-fluid">
+        <div class="about-header">
+            <h1 style="color:white!important;line-height:1!important;margin:0!important">IT Resources</h1>
+        </div>
+
+        <div class="row">&nbsp;</div>
+        <ul class="nav nav-tabs">
+            <li id="linkQl" class="active">
+                <a class="resourceLinks" onclick="qucikLinksfn()">Quick Links</a>
+            </li>
+            <!--<li id="linkOOC">
+                <a class="resourceLinks" onclick="outofOfficefn()">Out of Office Calendar</a>
+            </li>-->
+            <li id="linkITR">
+                <a class="resourceLinks" onclick="orgchartfn()">IT Resources</a>
+            </li>
+            <li id="linkSM">
+                <a class="resourceLinks" onclick="siteMapfn()">Site Map</a>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>

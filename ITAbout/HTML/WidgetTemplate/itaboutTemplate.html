@@ -1,0 +1,101 @@
+﻿<!-- IT About -->
+<div class="row" style="min-height:800px;">
+    <div class="about-page content-wrap">
+        <div class="about-header">
+            <h1 style="color:white!important;line-height:1!important;margin:0!important">About IT</h1>
+        </div>
+        <div class="about-content">
+            <!-- Large and Medium Screens  -->
+            <div class="row visible-md visible-lg">
+                <div class="col-md-4 col-md-8">
+                    <div class="bio-image">
+                        <a href="#"><img ng-src={{model.withCEO.imageURL}} class="img-responsive"></a>
+                    </div>
+                    <div class="row visible-xs visible-sm">&nbsp;</div>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <p class="name">{{ model.withCEO.firstName}}  {{ model.withCEO.lastName}}</p>
+                    <p class="job-title">{{ model.withCEO.title}}</p>
+                    <p>{{ model.withCEO.about}}</p>
+                    <div class="row visible-xs visible-sm">&nbsp;</div>
+                </div>               
+            </div>
+            <div class="row visible-md visible-lg">
+                <div class="col-md-2" ng-repeat="executive in model.withoutCEO">
+                    <div class="bio-image" ng-if="executive.ID <= 6">
+                        <!--ng-class="executive.Id >5 ? 'nextLine'"-->
+                        <a href="#">
+                            <img ng-src={{executive.imageURL}} class="img-responsive" ng-click="model.about(executive.listid)">
+                            <div ng-class-even="'caption caption-orange'" ng-class-odd="'caption caption-purple'" ng-click="model.about(executive.listid)">
+                                <p class="caption-name">{{executive.firstName}}  {{executive.lastName}}</p>
+                            </div>
+                        </a>
+                    </div>                   
+                </div>
+            </div>
+            <div class="row visible-md visible-lg">
+                <div class="col-md-2" ng-repeat="executive in model.withoutCEO">
+                    <div class="bio-image" ng-if="executive.ID > 6">
+                        <!--ng-class="executive.Id >5 ? 'nextLine'"-->
+                        <a href="#">
+                            <img ng-src={{executive.imageURL}} class="img-responsive" ng-click="model.about(executive.listid)">
+                            <div ng-class-even="'caption caption-orange'" ng-class-odd="'caption caption-purple'" ng-click="model.about(executive.listid)">
+                                <p class="caption-name">{{executive.firstName}}  {{executive.lastName}}</p>
+                                <!--<p class="caption-job-title">{{executive.title}}</p>-->
+                            </div>
+                        </a>
+                    </div>
+                    <!--<div class="row visible-xs visible-sm">&nbsp;</div>-->
+                </div>
+                <div class="row visible-xs visible-sm">&nbsp;</div>
+            </div>
+            <!-- Small and extra Samll Screens  -->
+            <div class="row visible-xs visible-sm">
+                <div class="col-sm-12">
+                    <div class="bio-image">
+                        <a href="#"><img ng-src={{model.withCEO.imageURL}} class="img-responsive"></a>
+                    </div>
+                    <div class="row visible-xs visible-sm">&nbsp;</div>
+                </div>
+                <div class="col-sm-12">                  
+                    <p class="name">{{ model.withCEO.firstName}}  {{ model.withCEO.lastName}}</p>
+                    <p class="job-title">{{ model.withCEO.title}}</p>
+                    <p>{{ model.withCEO.about}}</p>
+                    <div class="row visible-xs visible-sm">&nbsp;</div>
+                </div>
+                <div class="row visible-xs visible-sm">&nbsp;</div>
+            </div>
+            <div class="row visible-xs visible-sm">
+                <div class="col-sm-12" ng-repeat="executive in model.withoutCEO">
+                    <div class="bio-image" ng-if="executive.ID <= 6">   <!--ng-class="executive.Id >5 ? 'nextLine'"--> 
+                        <a href="#" >
+                            <img ng-src={{executive.imageURL}} class="img-responsive" ng-click="model.about(executive.listid)">
+                            <div ng-class-even="'caption caption-orange'" ng-class-odd="'caption caption-purple'" ng-click="model.about(executive.listid)">
+                                <p class="caption-name">{{executive.firstName}}  {{executive.lastName}}</p>                                
+                            </div>
+                        </a>
+                    </div>
+                    <div ng-class="executive.ID < 6 ? 'row visible-xs visible-sm' : 'row hidden-sm hidden-xs'">&nbsp;</div>
+                </div>
+            </div>             
+            <div class="row visible-xs visible-sm">                
+                <div class="col-sm-12" ng-repeat="executive in model.withoutCEO">
+                    <div class="bio-image" ng-if="executive.ID > 6">
+                        <!--ng-class="executive.Id >5 ? 'nextLine'"-->
+                        <a href="#">
+                            <img ng-src={{executive.imageURL}} class="img-responsive" ng-click="model.about(executive.listid)">
+                            <div ng-class-even="'caption caption-orange'" ng-class-odd="'caption caption-purple'" ng-click="model.about(executive.listid)">
+                                <p class="caption-name">{{executive.firstName}}  {{executive.lastName}}</p>
+                                <!--<p class="caption-job-title">{{executive.title}}</p>-->
+                            </div>
+                        </a>
+                    </div>
+                    <!--<div class="row visible-xs visible-sm">&nbsp;</div>-->
+                </div>
+                <div class="row visible-xs visible-sm">&nbsp;</div>
+            </div>            
+        </div>        
+    </div>
+</div>
+ <div class="row" style="clear:both">&nbsp;</div>  
+

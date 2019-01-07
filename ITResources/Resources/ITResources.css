@@ -1,0 +1,199 @@
+﻿#chart{
+	height:auto;
+}
+.s4-wpcell > .ms-webpart-chrome, .s4-wpActive > .ms-webpart-chrome {
+    border: 1px solid transparent;
+    border-color: #13a4e1!important;
+    border-radius: 5px;
+}
+.ms-webpart-chrome-title {
+    background: #13a4e1!important;
+    padding-left: 5px;
+}
+h2.ms-webpart-titleText {
+     border-bottom: none!important;
+     padding-bottom: 0px!important;
+}
+.ms-webpart-titleText.ms-webpart-titleText, .ms-webpart-titleText > a{
+color: white!important;
+}
+.ms-WPBorder{
+	border:none;
+	padding: 5px;
+}
+p.mainTitle {
+    display: none!important;
+}
+p.linkTitle {
+    font-size: 14px;
+    font-family: -webkit-pictograph;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+/*##################################################*/
+
+ .resources-header {
+    background: url(/sites/IT/SiteAssets/Header_Resources.png) no-repeat;
+    background-size: cover;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius:5px;
+}
+.long-name {
+     font-size: 12px;
+}
+ .customImage {
+     display: inherit !important;
+     border-radius: 50%;
+     height: 50px;
+     margin: auto;
+}
+ .orgInfoTitle {
+     color: white;
+     font-family: auto;
+     padding: 0;
+     margin: 0;
+     margin-top: -12px !important;
+     height: 30px;
+}
+ .orgInfoName {
+     color: black;
+     font-family: initial;
+     padding: 0;
+     margin: 0;
+}
+ div.orgChart tr.lines td.top {
+     border-top: 3px solid #337ab7 !important;
+}
+ div.orgChart tr.lines td.left {
+     border-right: 2px solid #337ab7 !important;
+}
+ div.orgChart tr.lines td.right {
+     border-left: 2px solid #337ab7 !important;
+}
+ div.orgChart div.node {
+     border: 2px solid #337ab7!important;
+     background-color: #ffffcf;
+}
+ div.orgChart div.node {
+     width: 125px !important;
+}
+ div.orgChart {
+     border: none !important;
+     background-color: white !important;
+     margin: 10px;
+     padding: 20px;
+}
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    font-weight: 500!important;
+}
+/*
+ .tabs-left, .tabs-right {
+     border-bottom: none;
+     padding-top: 2px;
+}
+ .tabs-left {
+     border-right: 1px solid #ddd;
+}
+ .tabs-right {
+     border-left: 1px solid #ddd;
+}
+ .tabs-left > li, .tabs-right > li {
+     float: none;
+     margin-bottom: 2px;
+}
+ .tabs-left > li {
+     margin-right: -1px;
+}
+ .tabs-right > li {
+     margin-left: -1px;
+}
+ .tabs-left > li.active > a, .tabs-left > li.active > a:hover, .tabs-left > li.active > a:focus {
+     border-bottom-color: #ddd;
+     border-right-color: transparent;
+}
+ .tabs-right > li.active > a, .tabs-right > li.active > a:hover, .tabs-right > li.active > a:focus {
+     border-bottom: 1px solid #337ab7;
+     border-left-color: #337ab7;
+     background-color: #337ab7;
+}
+ .tabs-left > li > a {
+     border-radius: 4px 0 0 4px;
+     margin-right: 0;
+     display: block;
+}
+ .tabs-right > li > a {
+     border-radius: 0 4px 4px 0;
+     margin-right: 0;
+     font-size: 16px;
+     font-weight: 500;
+}*/
+ */
+ .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+     color: white !important;
+     font-size: 16px;
+     font-weight: 500;
+}
+ .gif {
+     text-align: center;
+     margin: auto;
+}
+ .gifSiteMap{
+     text-align: center;
+     margin: auto;
+}
+ .siteMapTitle{
+     color: black;
+     font-family: initial;
+     padding: 0;
+     margin: 0;
+     border-bottom: 1px solid black!important;
+     margin-top: -5px!important;
+     font-size: 14px;
+}
+ .ms-rtestate-field h1, h1.ms-rteElement-H1, .ms-rtestate-field h2, h2.ms-rteElement-H2 {
+     line-height: 0.4!important;
+     color: #0072C6;
+}
+ a.linkURL {
+     font-weight: 500!important;
+     font-family: serif!important;
+     font-size: 16px!important;
+}
+ div.orgChart.interactive div.hasChildren:hover {
+    background: #20507a!important;
+}
+div.orgChart div.hasChildren {
+    background-color: #337ab7!important;
+}
+div.orgChart div.node {
+    cursor: default;
+    border: 2px solid black;
+    display: inline-block;
+    padding: 0 4px;
+    width: 96px;
+    height: 60px;
+    background-color: #337ab7!important;
+    line-height: 1.3em;
+    border-radius: 8px;
+    box-shadow: 4px 4px 6px #888888;
+    -moz-border-radius: 8px;
+    -moz-box-shadow: 4px 4px 6px #888888;
+    -webkit-border-radius: 8px;
+    -webkit-box-shadow: 4px 4px 6px #888888;
+}
+.linkTitle a{
+	color:white!important
+}
+.linkTitle a:active{
+	color:white!important
+}
+.linkTitle a:focus{
+	color:white!important
+}
+.linkTitle a:hover{
+	color:white!important
+}

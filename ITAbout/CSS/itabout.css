@@ -1,0 +1,256 @@
+﻿.resources-header {
+    background: url(/sites/IT/SiteAssets/images/Header_About.png) no-repeat;
+    background-size: cover;
+    padding: 10px 20px;
+    color: #fff;
+}
+.events {
+    padding: 35px 35px 35px 0px;
+}
+.event-filters {
+    padding: 20px 35px;
+    margin-bottom: 20px;
+}
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+.event-filters form .form-group {
+    display: inline-block;
+    margin-right: 85px;
+}
+.event-filters form .form-group label {
+    font-size: 10px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+.event-filters form .form-group .form-control {
+    border: none;
+    border-bottom: 1px solid #000;
+    border-radius: 0px;
+    padding: 5px 10px;
+    width: 120%;
+}
+.btn-blue {
+    background-color: #0065a1;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 8px 25px;
+    letter-spacing: 1px;
+    transition: all ease 0.3s;
+}
+.btn-blue:hover{
+	background-color: #13a4e1!important;
+	  border: none;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 8px 25px;
+    letter-spacing: 1px;
+    transition: all ease 0.3s;
+}
+.btn-blue:active{
+	background-color: #13a4e1!important;
+	  border: none;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 8px 25px;
+    letter-spacing: 1px;
+    transition: all ease 0.3s;
+}
+.btn-blue:focus{
+	background-color: #13a4e1!important;
+	  border: none;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 8px 25px;
+    letter-spacing: 1px;
+    transition: all ease 0.3s;
+}
+
+input[type=password]:hover, input[type=text]:hover, input[type=file]:hover, textarea:hover, .sp-peoplepicker-topLevel:hover, .ms-inputBox:hover {
+    border-color: white	!important;
+}
+
+.text-input {
+    border-bottom: solid 1px black !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;    
+}
+.text-input:focus{ 
+    border-bottom: solid 1px black !important;
+
+}
+.form-control {
+    border: none;
+    border-radius: 0px!important;
+    padding: 5px 10px!important;
+    border-bottom: solid 1px black !important;
+    
+}
+.form-control:focus {
+    border-bottom: solid 1px black !important;
+    -webkit-box-shadow:none!important;
+     box-shadow:none!important;
+}
+.form-control:hover{
+    border-bottom: solid 1px black !important;
+    -webkit-box-shadow:none!important;
+     box-shadow:none!important;
+}
+.form-control:active{
+    border-bottom: solid 1px black !important;
+    -webkit-box-shadow:none!important;
+     box-shadow:none!important;
+}
+
+label {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+.fa-stack {
+    color: #0065a1;
+    font-style: normal !important;
+}
+.dateBoder{
+	text-align:center;
+	 border-right: 1px solid #d7d7d7;
+}
+
+.addmargin {
+    margin-top: 20px;
+    padding-left:50px;
+}
+h4.month {
+    color: #f5af02 !important;
+    font-size: 22px !important;
+    margin-top: 14px;
+    }
+h4.date {
+    margin-top: -25px;
+    font-size: 22px !important;
+    color: #f5af02 !important;
+    }
+.resources-links {
+    background-color: #f5f5f5;
+    padding: 35px;
+}
+.left-column {
+    border-right: 1px solid #bebebe;
+}
+.right-column {
+    padding-left: 0px;
+}
+.left-column h2{
+	font-weight:500!important;
+	color:#f5af02 !important;
+}
+.right-column h2{
+	font-weight:500!important;
+	color:#f5af02 !important;
+}
+.fa-2x {
+    font-size: 2.6em!important;
+}
+
+/*################ Abou.aspx Page CSS ################*/
+
+.about-content .row > .col, .about-content .row > [class*="col-"] {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.about-header {
+    background: url(/sites/IT/SiteAssets/images/Header_About.png) no-repeat;
+    background-size: cover;
+    height: 100%;
+    padding: 20px 40px;
+    color: #fff;
+}
+.about-content {
+    padding: 15px 10px 25px 10px;
+    background-color: rgba(0, 174, 239, 0.1);
+}
+.about-content .bio-image {
+    position: relative;
+    overflow: hidden;
+      max-width: 100%;  
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+
+}
+.about-content p.name {
+    font-size: 16px;
+    margin: 0px;
+    color: #0065a1;
+    font-weight: bold;
+}
+.about-content p.job-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #0065a1;
+    font-style: italic;
+}
+.about-content .row {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 20px 0px;
+}
+.about-content a img {
+    width: 100%;
+    transition: all ease 0.3s;
+}
+.about-content a .caption {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 10px;
+}
+ .caption-orange {
+      background-color: rgba(247, 146, 30, 0.8);
+      -webkit-transition: all ease 0.3s;
+      -moz-transition: all ease 0.3s;
+      transition: all ease 0.3s;
+}
+
+.caption-blue {
+      background-color: rgba(0, 174, 239, 0.8);
+      -webkit-transition: all ease 0.3s;
+      -moz-transition: all ease 0.3s;
+      transition: all ease 0.3s;
+}
+
+.caption-purple {
+      background-color: rgba(214, 12, 140, 0.8);
+      -webkit-transition: all ease 0.3s;
+      -moz-transition: all ease 0.3s;
+      transition: all ease 0.3s;
+}
+.about-content a .caption p.caption-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    line-height:1;
+}
+.about-content a .caption p.caption-job-title {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: italic;
+    color: #fff;
+    line-height:1;
+}
+.bio-image:hover {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);}
+}
